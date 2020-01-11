@@ -4,8 +4,15 @@ import Nav from "react-bootstrap/Nav";
 import NavDropdown from "react-bootstrap/NavDropdown";
 
 import "./Navbar.css";
+import {authenticationService} from "../../auth/services";
+import {history} from "../../auth/helpers";
 
 export class NavigationBar extends React.Component {
+    logout() {
+        authenticationService.logout();
+        history.push('/login');
+    }
+
     render() {
         return (
                 <Navbar bg="light" expand="sm">
@@ -36,7 +43,7 @@ export class NavigationBar extends React.Component {
 
                             <NavDropdown alignRight className='user' title="Andrzej Duda">
                                 <NavDropdown.Header>Opcje konta</NavDropdown.Header>
-                                <NavDropdown.Item href="/login">
+                                <NavDropdown.Item href="/login" onClick={this.logout}>
                                     Wyloguj się
                                 </NavDropdown.Item>
                             </NavDropdown>

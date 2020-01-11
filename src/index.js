@@ -7,7 +7,7 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 import {App} from './App';
 
 // setup fake backend
-import {configureFakeBackend} from '../src/new/_helpers';
+import {configureFakeBackend} from './auth/helpers';
 
 configureFakeBackend();
 

@@ -1,11 +1,15 @@
 import React from 'react';
-import { Router, Route, Link } from 'react-router-dom';
+import {Router, Route, Link} from 'react-router-dom';
 
-import { history } from '../src/new/_helpers';
-import { authenticationService } from '../src/new/_services';
-import { PrivateRoute } from '../src/new/_components';
-import { HomePage } from '../src/new/HomePage';
-import { LoginPage } from '../src/new/LoginPage';
+import {history} from './auth/helpers';
+import {authenticationService} from './auth/services';
+import {PrivateRoute} from './auth/components/PrivateRoute';
+import {HomePage} from './auth/HomePage/HomePage';
+import {LoginPage} from './auth/LoginPage/LoginPage';
+import MainRoutes from "./routes/MainRoutes";
+import {NavigationBar} from "./components/navbar/NavigationBar";
+import MainPage from "./components/main/MainPage";
+import SearchPage from "./components/search/SearchPage";
 
 class App extends React.Component {
     constructor(props) {
@@ -17,7 +21,7 @@ class App extends React.Component {
     }
 
     componentDidMount() {
-        authenticationService.currentUser.subscribe(x => this.setState({ currentUser: x }));
+        authenticationService.currentUser.subscribe(x => this.setState({currentUser: x}));
     }
 
     logout() {
@@ -26,32 +30,30 @@ class App extends React.Component {
     }
 
     render() {
-        const { currentUser } = this.state;
+        const {currentUser} = this.state;
         return (
             <Router history={history}>
                 <div>
                     {currentUser &&
-                    <nav className="navbar navbar-expand navbar-dark bg-dark">
-                        <div className="navbar-nav">
-                            <Link to="/" className="nav-item nav-link">Home</Link>
-                            <button onClick={this.logout} className="nav-item nav-link">Logout</button>
-                        </div>
-                    </nav>
+                    <NavigationBar/>
                     }
+
                     <div className="jumbotron">
                         <div className="container">
                             <div className="row">
                                 <div className="col-md-6 offset-md-3">
-                                    <PrivateRoute exact path="/" component={HomePage} />
-                                    <Route path="/login" component={LoginPage} />
+                                    <PrivateRoute exact path="/" component={MainPage}/>
+                                    <PrivateRoute path="/search" component={SearchPage}/>
+                                    <Route path="/login" component={LoginPage}/>
                                 </div>
                             </div>
                         </div>
                     </div>
                 </div>
+                {/*<MainRoutes/>*/}
             </Router>
         );
     }
 }
 
-export { App };
+export {App};
