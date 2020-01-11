@@ -34,7 +34,7 @@ export class NavigationBar extends React.Component {
                                  className="d-inline-block"
                             />
 
-                            <NavDropdown className='user' title="Andrzej Duda">
+                            <NavDropdown alignRight className='user' title="Andrzej Duda">
                                 <NavDropdown.Header>Opcje konta</NavDropdown.Header>
                                 <NavDropdown.Item href="/login">
                                     Wyloguj się

@@ -2,14 +2,11 @@
     display: flex;
     align-items: center;
 }
-.navbar-brand>img {
+
+.navbar-brand > img {
     padding: 4px;
 }
 
-.user {
-    padding: 0px 16px
-}
-
-.usterka-option{
-    margin: 0px 16px;
+.usterka-option {
+    margin: 0 16px;
 }
