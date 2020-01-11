@@ -17,7 +17,7 @@ export class NavigationBar extends React.Component {
         return (
                 <Navbar bg="light" expand="sm">
                     <Navbar.Brand href="/">
-                        <img src={require("../../images/favicon.ico")}
+                        <img src={require("../../assets/favicon.ico")}
                              width="40"
                              height="40"
                              className="d-inline-block align-top"
@@ -34,7 +34,7 @@ export class NavigationBar extends React.Component {
                         </Nav>
 
                         <Nav>
-                            <img src={require("../../images/honk.jpg")}
+                            <img src={require("../../assets/honk.jpg")}
                                  alt="Pepe"
                                  width="60"
                                  height="50"

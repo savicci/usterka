@@ -1,15 +1,13 @@
 import React from 'react';
-import {Router, Route, Link} from 'react-router-dom';
-
+import {Router, Route, Switch} from 'react-router-dom';
 import {history} from './auth/helpers';
 import {authenticationService} from './auth/services';
 import {PrivateRoute} from './auth/components/PrivateRoute';
-import {HomePage} from './auth/HomePage/HomePage';
-import {LoginPage} from './auth/LoginPage/LoginPage';
-import MainRoutes from "./routes/MainRoutes";
+import LoginPage from './auth/LoginPage/LoginPage';
 import {NavigationBar} from "./components/navbar/NavigationBar";
 import MainPage from "./components/main/MainPage";
 import SearchPage from "./components/search/SearchPage";
+import NoPage from "./components/NoPage";
 
 class App extends React.Component {
     constructor(props) {
@@ -24,33 +22,21 @@ class App extends React.Component {
         authenticationService.currentUser.subscribe(x => this.setState({currentUser: x}));
     }
 
-    logout() {
-        authenticationService.logout();
-        history.push('/login');
-    }
-
     render() {
         const {currentUser} = this.state;
         return (
             <Router history={history}>
-                <div>
-                    {currentUser &&
-                    <NavigationBar/>
-                    }
+                {currentUser && <NavigationBar/>}
 
-                    <div className="jumbotron">
-                        <div className="container">
-                            <div className="row">
-                                <div className="col-md-6 offset-md-3">
-                                    <PrivateRoute exact path="/" component={MainPage}/>
-                                    <PrivateRoute path="/search" component={SearchPage}/>
-                                    <Route path="/login" component={LoginPage}/>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
+                <div className="jumbotron myContainer">
+                    <Switch>
+                        <PrivateRoute exact path="/" component={MainPage}/>
+                        <PrivateRoute path="/search" component={SearchPage}/>
+                        <Route path="/login" component={LoginPage}/>
+                        <Route component={NoPage}/>
+                    </Switch>
                 </div>
-                {/*<MainRoutes/>*/}
+
             </Router>
         );
     }

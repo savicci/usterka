@@ -4,7 +4,7 @@ import * as Yup from 'yup';
 
 import { authenticationService } from '../services';
 
-class LoginPage extends React.Component {
+export default class LoginPage extends React.Component {
     constructor(props) {
         super(props);
 
@@ -73,5 +73,3 @@ class LoginPage extends React.Component {
         )
     }
 }
-
-export { LoginPage }; 
