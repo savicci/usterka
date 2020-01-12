@@ -9,6 +9,8 @@ import MainPage from "./components/main/MainPage";
 import SearchPage from "./components/search/SearchPage";
 import NoPage from "./components/NoPage";
 
+import "./App.css";
+
 class App extends React.Component {
     constructor(props) {
         super(props);
@@ -26,17 +28,20 @@ class App extends React.Component {
         const {currentUser} = this.state;
         return (
             <Router history={history}>
-                {currentUser && <NavigationBar/>}
+                <div style={{height: "100vh", width: "100vw"}}>
+                    {currentUser && <div style={{height: "5vh", width: "100vw"}}>
+                        <NavigationBar/>
+                    </div>}
 
-                <div className="jumbotron myContainer">
-                    <Switch>
-                        <PrivateRoute exact path="/" component={MainPage}/>
-                        <PrivateRoute path="/search" component={SearchPage}/>
-                        <Route path="/login" component={LoginPage}/>
-                        <Route component={NoPage}/>
-                    </Switch>
+                    <div style={{height: "90vh", marginTop: "5vh", width: "100%"}}>
+                        <Switch>
+                            <PrivateRoute exact path="/" component={MainPage}/>
+                            <PrivateRoute path="/search" component={SearchPage}/>
+                            <Route path="/login" component={LoginPage}/>
+                            <Route component={NoPage}/>
+                        </Switch>
+                    </div>
                 </div>
-
             </Router>
         );
     }
