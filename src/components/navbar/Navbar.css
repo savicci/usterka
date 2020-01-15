@@ -1,0 +1,13 @@
+.navbar-brand {
+    display: flex;
+    align-items: center;
+}
+
+.navbar-brand > img {
+    padding: 4px;
+}
+
+.usterka-option {
+    margin: 0 16px;
+}
+
