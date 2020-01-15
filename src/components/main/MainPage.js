@@ -1,3 +1,10 @@
 import React from "react";
 
-export default () => (<h1>MainPage</h1>);
+const main =()=>{
+    return (
+        <div>
+            <h1>Strona glowna</h1>
+        </div>
+    );
+};
+export default main;
