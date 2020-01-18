@@ -22,7 +22,6 @@ const Content = styled.div`
 `;
 
 export default function AuthLayout({children}) {
-    console.log(children);
     return (
         <>
             <Wrapper>
