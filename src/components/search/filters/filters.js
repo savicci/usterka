@@ -2,20 +2,50 @@ import React from "react";
 import Auxiliray from '../../../hoc/Auxiliary/Auxiliary'
 import styles from './filters.module.css'
 import RangeBar from './RangeBar/RangeBar'
+
 class Filters extends React.Component {
     state = {
-        range:0
+        range: 0,
+        type:
+            {
+                rem: false,
+                bud: false,
+                mal: false,
+                pomoc: false,
+                hyd: false,
+                sprz: false,
+                stol: false
+            }
+    };
+
+    toggleCheck = (e) => {
+        const name = e.target.name;
+        const checked = e.target.checked;
+        this.setState((prevState) => {
+            return {
+                type: {
+                    ...prevState.type,
+                    [name]: !prevState.type[name]
+                }
+            }
+        });
+        // const {checkbox}={...this.state};
+        // const currentState=checkbox;
+        // currentState.pomoc=!this.state.checkbox_List.pomoc;
+        // this.setState({checkbox:currentState})
+        //this.setState({pomoc:!this.state.pomoc})
     };
     rangeChangeHandler = (e) => {
-        this.setState({range:e.target.value});
-        console.log('km w filters '+this.state.range);
+        this.setState({range: e.target.value});
+        console.log('km w filters ' + this.state.range);
         this.props.filtersCalDist(this.state.range)
     };
 
     render() {
-        const stylek={
+        console.log(this.state.type.pomoc);
+        const stylek = {
             // background: 'linear-gradient(90deg,rgb(117,252,117) '+ {this.state.range}+', rgb(214,214,214)'+ 60%+')'
-            background: `linear-gradient(90deg,lightskyblue ${this.state.range*10}%, #95a5a6 ${this.state.range}%)`
+            background: `linear-gradient(90deg,lightskyblue ${this.state.range * 10}%, #95a5a6 ${this.state.range}%)`
         };
         return (
             <Auxiliray>
@@ -25,7 +55,7 @@ class Filters extends React.Component {
                         <input placeholder='Czego dzisiaj szukasz? '></input>
                     </div>
                     <div className={styles.sortowanie}>
-                        <button className={styles.sortowanie_btn}>Sortuj po: </button>
+                        <button className={styles.sortowanie_btn}>Sortuj po:</button>
                         <div className={styles.sort}>
                             <a href='/'>Alfabetycznie</a>
                             <a href='/'>Ocena</a>
@@ -36,30 +66,55 @@ class Filters extends React.Component {
                     <h2>Kategorie</h2>
                     <ul>
                         <li>
-                            <label><input type='checkbox'/>Usługi remontowe</label>
+                            <label><input type='checkbox'
+                                          checked={this.state.type.rem}
+                                          name={'rem'}
+                                          onChange={this.toggleCheck}/>Usługi remontowe
+                            </label>
                         </li>
                         <li>
-                            <label><input type='checkbox'/>Usługi hydrauliczne</label>
+                            <label><input type='checkbox'
+                                          checked={this.state.type.hyd}
+                                          name={'hyd'}
+                                          onChange={this.toggleCheck}/>Usługi
+                                hydrauliczne</label>
                         </li>
                         <li>
-                            <label><input type='checkbox'/>Usługi budowlane</label>
+                            <label><input type='checkbox'
+                                          checked={this.state.type.bud}
+                                          name={'bud'}
+                                          onChange={this.toggleCheck}/>Usługi
+                                budowlane</label>
                         </li>
                         <li>
-                            <label><input type='checkbox'/>Usługi stolarskie</label>
+                            <label><input type='checkbox'
+                                          checked={this.state.type.stol}
+                                          name={'stol'}
+                                          onChange={this.toggleCheck}/>Usługi
+                                stolarskie</label>
                         </li>
                         <li>
-                            <label><input type='checkbox'/>Pomoc kuchenna</label>
+                            <label><input type='checkbox'
+                                          checked={this.state.type.pomoc}
+                                          name={'pomoc'}
+                                          onChange={this.toggleCheck}
+                            />Pomoc kuchenna</label>
                         </li>
                         <li>
-                            <label><input type='checkbox'/>Malowanie</label>
+                            <label><input type='checkbox' checked={this.state.type.mal}
+                                          name={'mal'}
+                                          onChange={this.toggleCheck}/>Malowanie</label>
                         </li>
                         <li>
-                            <label><input type='checkbox'/>Sprzątanie</label>
+                            <label><input type='checkbox' checked={this.state.type.sprz}
+                                          name={'sprz'}
+                                          onChange={this.toggleCheck}/>Sprzątanie</label>
                         </li>
                     </ul>
                     <h2>Odległość</h2>
                     <div className={styles.SlideContainer}>
-                        <input id='myRange' step='0.1' className={styles.Slide} style={stylek} type='range' min='0' max='10' value={this.state.range} onChange={this.rangeChangeHandler}/>
+                        <input id='myRange' step='0.1' className={styles.Slide} style={stylek} type='range' min='0'
+                               max='10' value={this.state.range} onChange={this.rangeChangeHandler}/>
                         <p>{this.state.range} km</p>
                     </div>
                     <div className={styles.zastosuj}>
