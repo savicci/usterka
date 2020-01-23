@@ -14,6 +14,8 @@ export class NavigationBar extends React.Component {
     }
 
     render() {
+        const user = JSON.parse(localStorage.getItem('currentUser'));
+
         return (
             <Navbar bg="light" expand="sm">
                 <Navbar.Brand href="/">
@@ -41,7 +43,7 @@ export class NavigationBar extends React.Component {
                              className="d-inline-block"
                         />
 
-                        <NavDropdown alignRight className='user' title="Andrzej Duda">
+                        <NavDropdown alignRight className='user' title={user.firstName + " " + user.lastName}>
                             <NavDropdown.Header>Opcje konta</NavDropdown.Header>
                             <NavDropdown.Item href="/login" onClick={this.logout}>
                                 Wyloguj się

@@ -1,5 +1,8 @@
 export function configureFakeBackend() {
-    let users = [{ id: 1, username: 'test', password: 'test', firstName: 'Test', lastName: 'User' }];
+    let users = [
+        {id: 1, username: 'test', password: 'test', firstName: 'Test', lastName: 'User'},
+        {id: 1, username: 'gkoziol', password: 'gkoziol', firstName: 'Grzegorz', lastName: 'Koziol'}
+    ];
     let realFetch = window.fetch;
     window.fetch = function (url, opts) {
         const isLoggedIn = opts.headers['Authorization'] === 'Bearer fake-jwt-token';
@@ -33,15 +36,15 @@ export function configureFakeBackend() {
                 // private helper functions
 
                 function ok(body) {
-                    resolve({ ok: true, text: () => Promise.resolve(JSON.stringify(body)) })
+                    resolve({ok: true, text: () => Promise.resolve(JSON.stringify(body))})
                 }
 
                 function unauthorised() {
-                    resolve({ status: 401, text: () => Promise.resolve(JSON.stringify({ message: 'Unauthorised' })) })
+                    resolve({status: 401, text: () => Promise.resolve(JSON.stringify({message: 'Unauthorised'}))})
                 }
 
                 function error(message) {
-                    resolve({ status: 400, text: () => Promise.resolve(JSON.stringify({ message })) })
+                    resolve({status: 400, text: () => Promise.resolve(JSON.stringify({message}))})
                 }
             }, 500);
         });

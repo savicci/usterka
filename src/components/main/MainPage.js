@@ -3,7 +3,7 @@ import FullCalendar from '@fullcalendar/react'
 import {getEventsWithColorsMapped, mockedEvents} from "../utils/mockedEvents";
 import timeGridPlugin from '@fullcalendar/timegrid';
 import {LegendBar} from "./LegendBar";
-import SomeModal from "../popups/SomeModal";
+import EventModal from "../popups/EventModal";
 
 import "./MainPage.css";
 
@@ -19,11 +19,11 @@ export default () => {
     }
 
     const [show, setShow] = useState(false);
-    const [id, setId] = useState(undefined);
+    const [id, setId] = useState('1');
 
     return (
         <div className="mainPage">
-            <SomeModal show={show} handleClose={() => setShow(false)} id={id}/>
+            <EventModal show={show} handleClose={() => setShow(false)} id={id}/>
 
             <LegendBar/>
             <div className="calendar">
