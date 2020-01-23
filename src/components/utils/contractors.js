@@ -9,7 +9,6 @@ export const contractors = [
             cost: 3,
             quality: 4,
             time: 3.5,
-            overall: (this.cost + this.quality + this.time)/3
         },
         distance: 40,
         opinions: [
@@ -24,12 +23,17 @@ export const contractors = [
                 }
             }
         ],
-        events: [
-
-        ]
+        events: []
     }
 ];
 
-export const categories = {
-    'Uslugi hydrauliczne': 1,
-};
+export const categories = [
+    {
+        id: 1,
+        type: 'Uslugi hydrauliczne'
+    },
+    {
+        id: 2,
+        type: 'Uslugi remontowe'
+    },
+];

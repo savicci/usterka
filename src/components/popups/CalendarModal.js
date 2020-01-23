@@ -1,4 +1,4 @@
-import React, {useEffect, useState} from "react";
+import React, {useState} from "react";
 import {Modal} from "react-bootstrap";
 import timeGridPlugin from "@fullcalendar/timegrid";
 import FullCalendar from "@fullcalendar/react";
@@ -7,34 +7,26 @@ import {Prompt} from "./Prompt";
 
 export const CalendarModal = (props) => {
     const calendarRef = React.createRef();
-    const [reservation, setReservation] = useState(undefined)
+    const [reservation, setReservation] = useState(undefined);
 
-    const handleClick = (info) => {
-        calendarRef.current.applyOverflow();
-    } ;
 
     const handleSelect = (info) => {
-        console.log(info);
-        setReservation(info);
+        setReservation({start: info.start, end: info.end});
     };
 
-    //
-    // // workaround for calendar not rendering on modal
-    // useEffect(() => {
-    //     console.log('helo');
-    //     if (calendarRef.current == null) return;
-    //     calendarRef.current.getApi().prev();
-    //     calendarRef.current.getApi().next();
-    // }, [reservation]);
+    const handleClose = () => {
+        setReservation(undefined);
+        props.handleClose();
+    };
 
     return (
-        <Modal size='lg' show={props.show} onHide={props.handleClose}>
+        <Modal size='lg' show={props.show} onHide={handleClose}>
             <Modal.Header closeButton>
                 <Modal.Title>Kalendarz wykonawcy</Modal.Title>
             </Modal.Header>
             <Modal.Body>
-                { reservation === undefined ? <></>: (
-                    <Prompt/>
+                {reservation === undefined ? <></> : (
+                    <Prompt handleClose={handleClose} reservation={reservation}/>
                 )}
 
                 <FullCalendar
@@ -44,7 +36,6 @@ export const CalendarModal = (props) => {
                     selectable={true}
                     plugins={[timeGridPlugin, interactionPlugin]}
                     events={[]}
-                    eventClick={handleClick}
                     select={handleSelect}
                     height="auto"
                 />
