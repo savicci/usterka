@@ -8,6 +8,8 @@ class Filters extends React.Component {
     };
     rangeChangeHandler = (e) => {
         this.setState({range:e.target.value});
+        console.log('km w filters '+this.state.range);
+        this.props.filtersCalDist(this.state.range)
     };
 
     render() {
@@ -61,7 +63,7 @@ class Filters extends React.Component {
                         <p>{this.state.range} km</p>
                     </div>
                     <div className={styles.zastosuj}>
-                        <button>Zastosuj</button>
+                        {/*<button onClick={this.props.hanStarFil}>Zastosuj</button>*/}
                     </div>
 
                 </div>

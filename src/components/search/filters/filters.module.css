@@ -6,12 +6,13 @@
     left: 0;
     top:auto;
     z-index: 200;
-    background-color: #dedede;
+    background-color: #f7f7f9;
     padding: 10px 16px;
     box-sizing: border-box;
     /*//transition: transform 0.3s ease-out;*/
-    border-width: thin;
-    border-style: solid;
+    /*border-width: thin;*/
+    /*border-style: solid;*/
+    border-top: none;
 
 }
 
@@ -108,7 +109,7 @@
     appearance: none;
     width: 40px;
     height: 40px;
-    background: white;
+    background: #5798e6;
     border-radius: 50%;
     cursor: pointer;
 }
@@ -162,6 +163,8 @@
 .sortowanie:hover .sortowanie_btn{
     background-color: lightskyblue;
 }
+
+
 
 
 

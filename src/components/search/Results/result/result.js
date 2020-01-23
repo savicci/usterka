@@ -7,6 +7,13 @@ class Result extends React.Component {
     clickHandler=(e)=>{
         console.log('klik');
     };
+
+    print_cat=()=>{
+        for(let i=0;i<this.props.specjalizacja.size;i++)
+        {
+
+        }
+    };
     render() {
         return (
             <Auxiliary>
@@ -18,11 +25,11 @@ class Result extends React.Component {
                         <img  src={kekw} alt='kekw'/>
                     </p>
 
-                    <p className={styles.nazwa_firmy}>Cleanix</p>
-                    <p className={styles.specjalizacje}>Specjalizacje</p>
-                    <p className={styles.opis}>Opis</p>
-                    <p className={styles.ocena}>Ocena</p>
-                    <p className={styles.km}>km</p>
+                    <p className={styles.nazwa_firmy}>{this.props.nazwa}</p>
+                    <p className={styles.specjalizacje}>{this.props.specjalizacja}</p>
+                    <p className={styles.opis}>{this.props.opis}</p>
+                    <p className={styles.ocena}>{this.props.ocena}</p>
+                    <p className={styles.km}>{this.props.odleglosc} km</p>
                     <p className={styles.zamow}>
                         <button onClick={this.props.modalOpen}>Zamow</button>
                     </p>

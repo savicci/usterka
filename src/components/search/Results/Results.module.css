@@ -1,3 +1,20 @@
 .Results{
     margin-left: 280px;
 }
+.but{
+    position: absolute;
+    left: 4%;
+    bottom: 20px;
+    z-index: 999;
+    background-color: lightblue;
+    border-style: solid;
+    border-width: thin;
+    border-color: dodgerblue;
+    color: black;
+    text-align: center;
+    font-size: 16px;
+    border-radius: 20px;
+    height:40px;
+    /*width:100%;*/
+    width: 7%;
+}
