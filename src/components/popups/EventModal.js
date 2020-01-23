@@ -51,7 +51,7 @@ export default function EventModal(props) {
         )
     }
 
-    function getFooterLookFromEvent(event) {
+    function getFooterLookFromEventState(event) {
         switch (event.state) {
             case 'finished':
                 return (
@@ -99,7 +99,7 @@ export default function EventModal(props) {
             </Modal.Body>
 
             <Modal.Footer>
-                {getFooterLookFromEvent(event)}
+                {getFooterLookFromEventState(event)}
             </Modal.Footer>
         </Modal>
     );

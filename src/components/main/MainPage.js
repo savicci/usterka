@@ -8,7 +8,7 @@ import EventModal from "../popups/EventModal";
 import "./MainPage.css";
 
 
-export default () => {
+export const MainPage =  () => {
     const [events, setEvents] = useState(mockedEvents);
 
     const calendarRef = React.createRef();

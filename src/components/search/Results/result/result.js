@@ -24,7 +24,7 @@ class Result extends React.Component {
                     <p className={styles.ocena}>Ocena</p>
                     <p className={styles.km}>km</p>
                     <p className={styles.zamow}>
-                        <button onClick={this.clickHandler}>Zamow</button>
+                        <button onClick={this.props.modalOpen}>Zamow</button>
                     </p>
 
                 </div>

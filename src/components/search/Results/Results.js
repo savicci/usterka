@@ -7,11 +7,11 @@ class Results extends React.Component{
         return(
             <div className={styles.Results}>
                 <Labels/>
-                <Result/>
-                <Result/>
-                <Result/>
-                <Result/>
-                <Result/>
+                <Result modalOpen={this.props.modalOpen}/>
+                <Result modalOpen={this.props.modalOpen}/>
+                <Result modalOpen={this.props.modalOpen}/>
+                <Result modalOpen={this.props.modalOpen}/>
+                <Result modalOpen={this.props.modalOpen}/>
             </div>
         );
     }

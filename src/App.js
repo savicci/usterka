@@ -4,8 +4,8 @@ import {history} from './auth/helpers';
 import {authenticationService} from './auth/services';
 import {PrivateRoute} from './auth/components/PrivateRoute';
 import LoginPage from './auth/LoginPage/LoginPage';
-import MainPage from "./components/main/MainPage";
-import SearchPage from "./components/search/SearchPage";
+import {MainPage} from "./components/main/MainPage";
+import {SearchPage} from "./components/search/SearchPage";
 import NoPage from "./components/NoPage";
 
 import "./App.css";

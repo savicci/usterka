@@ -1,16 +1,19 @@
-import React, {Component} from "react";
+import React, {useState} from "react";
 import Filters from "./filters/filters";
 import Results from "./Results/Results";
-class SearchPage extends Component{
-    render() {
-        return(
-            <div>
-                <Filters/>
-                <Results/>
-            </div>
-        )
+import {CalendarModal} from "../popups/CalendarModal";
 
-    }
+export const SearchPage = () => {
+    const [show, setShow] = useState(false);
+    const handleClose = () => setShow(false);
+    const handleOpen = () => setShow(true);
 
-}
-export default SearchPage;
+    return (
+        <div>
+            <CalendarModal show={show} handleClose={handleClose}/>
+
+            <Filters/>
+            <Results modalOpen={handleOpen}/>
+        </div>
+    )
+};
