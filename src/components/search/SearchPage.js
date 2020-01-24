@@ -9,20 +9,44 @@ export const SearchPage = () => {
     const handleClose = () => setShow(false);
     const handleOpen = () => setShow(true);
     const [start, setStart] = useState(false);
+    const [check,setCheck]=useState();
+    const [test_val_se,set_test]=useState(0);
 
+
+
+    const [licznik,setLicznik]=useState(0);
+    const handleLicznikChange=(licznik)=>{
+        setLicznik(licznik)
+    };
 
     const handleDist = (dis) => setDist(dis);
+    const handleCheck=  (che)=>
+    {
+        setCheck(che);
+    };
+
+    const logChe=()=>{
+        console.log(licznik)
+    };
+    logChe();
     return (
         <div>
             <CalendarModal show={show} handleClose={handleClose}/>
 
             <Filters
                 filtersCalDist={handleDist}
+                filtersCalCheck={handleCheck}
+                onLicznikChange={handleLicznikChange}
+                licznik={licznik}
             />
+
             <Results
                 modalOpen={handleOpen}
                 dist={dist}
+                boxy={check}
+                dana_result={licznik}
             />
+
         </div>
     )
 };

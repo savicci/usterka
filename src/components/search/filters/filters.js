@@ -15,10 +15,12 @@ class Filters extends React.Component {
                 hyd: false,
                 sprz: false,
                 stol: false
-            }
+            },
+        dana_filtr: 0,
+        licznik:this.props.licznik
     };
 
-    toggleCheck = (e) => {
+    toggleCheck = (e, licznik) => {
         const name = e.target.name;
         const checked = e.target.checked;
         this.setState((prevState) => {
@@ -29,11 +31,10 @@ class Filters extends React.Component {
                 }
             }
         });
-        // const {checkbox}={...this.state};
-        // const currentState=checkbox;
-        // currentState.pomoc=!this.state.checkbox_List.pomoc;
-        // this.setState({checkbox:currentState})
-        //this.setState({pomoc:!this.state.pomoc})
+        // this.setState({dana_filtr: (this.state.dana_filtr + 1)})
+        // this.props.test_cal(this.state.dana_filtr);
+        this.props.filtersCalCheck(this.state.type);
+        // this.props.onLicznikChange(e.target.value);
     };
     rangeChangeHandler = (e) => {
         this.setState({range: e.target.value});
@@ -41,8 +42,17 @@ class Filters extends React.Component {
         this.props.filtersCalDist(this.state.range)
     };
 
+    handleChangeLicznik=(e)=>{
+        this.props.onLicznikChange(this.state.licznik++)
+    };
+
     render() {
-        console.log(this.state.type.pomoc);
+        let licznik = this.props.licznik;
+        const licznik_change = () => {
+            licznik++;
+        };
+
+        //console.log(this.state.type.pomoc);
         const stylek = {
             // background: 'linear-gradient(90deg,rgb(117,252,117) '+ {this.state.range}+', rgb(214,214,214)'+ 60%+')'
             background: `linear-gradient(90deg,lightskyblue ${this.state.range * 10}%, #95a5a6 ${this.state.range}%)`
@@ -65,6 +75,14 @@ class Filters extends React.Component {
 
                     <h2>Kategorie</h2>
                     <ul>
+                        <li>
+                            <label><input type='checkbox'
+                                          checked={this.state.licznik}
+                                          name={'rem'}
+                                          onChange={this.handleChangeLicznik}
+                            />Test
+                            </label>
+                        </li>
                         <li>
                             <label><input type='checkbox'
                                           checked={this.state.type.rem}
@@ -108,7 +126,10 @@ class Filters extends React.Component {
                         <li>
                             <label><input type='checkbox' checked={this.state.type.sprz}
                                           name={'sprz'}
-                                          onChange={this.toggleCheck}/>Sprzątanie</label>
+                                // onChange={this.toggleCheck}
+                                          onChange={this.toggleCheck}
+                            />Sprzątanie
+                            </label>
                         </li>
                     </ul>
                     <h2>Odległość</h2>

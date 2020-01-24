@@ -46,9 +46,12 @@ workers.push(worker0, worker1, worker2, worker3, worker4);
 
 
 class Results extends React.Component {
-    state={
-      counter:0
+    state = {
+        counter: 0,
+        dana: this.props.dana_result
     };
+
+
 
     filtruj = () => {
 
@@ -72,14 +75,29 @@ class Results extends React.Component {
                 />;
             //list_jsx_res.push(res_jsx);
         }
-        this.state.counter+=1;
+        this.state.counter += 1;
         this.forceUpdate();
         //console.log(list_jsx_res)
     };
 
+    // static getDerivedStateFromProps(props,state){
+    //     if (props.dana_result !== state.dana_result) {
+    //         return {
+    //             dana_result: props.dana_result
+    //         };
+    //     }
+    //     return null;
+    // }
+
+    componentWillReceiveProps(nextProps, nextContext) {
+        if(nextProps.dana_result!==this.props.dana_result){
+            this.setState({dana:nextProps.dana_result})
+        }
+    }
 
     render() {
-        const list_jsx_res=[];
+        console.log(this.state.dana);
+        const list_jsx_res = [];
         const res_workers = [];
         for (let i = 0; i < workers.length; i++) {
             if (workers[i].odleglosc < this.props.dist) {
@@ -101,7 +119,9 @@ class Results extends React.Component {
         }
         // this.state.counter+=1;
         // this.forceUpdate();
-        console.log(list_jsx_res);
+        //console.log(list_jsx_res);
+        // console.log('Drukuje boxy result!');
+        // console.log(this.props.boxy);
         return (
             <Auxiliray>
 
