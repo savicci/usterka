@@ -1,7 +1,6 @@
-import React from "react";
+import React, {useState} from "react";
 import {Button, FormControl, InputGroup} from "react-bootstrap";
 import styled from "styled-components";
-import {CategoryDropdown} from "./CategoryDropdown";
 
 const ButtonMenu = styled.div`
 {
@@ -11,6 +10,22 @@ const ButtonMenu = styled.div`
 }`;
 
 export const Prompt = (props) => {
+    const [form, setForm] = useState({
+        title: '',
+        shortText: '',
+    });
+
+    const validateForm = () => {
+        if (form.title === '') {
+            props.setError({occured: true, message: 'Dodaj tytul ogloszenia'})
+        } else if (form.shortText === '') {
+            props.setError({occured: true, message: 'Dodaj opis ogloszenia'})
+        } else {
+            props.setError({occured: false, message: ''});
+            props.handleClose();
+        }
+    };
+
 
     return (
         <>
@@ -25,22 +40,24 @@ export const Prompt = (props) => {
                         Tytul ogloszenia
                     </InputGroup.Text>
                 </InputGroup.Prepend>
-                <FormControl aria-describedby="basic-addon3"/>
+                <FormControl aria-describedby="basic-addon3" onChange={text => setForm(prevState => {
+                    return {...prevState, title: text};
+                })}/>
             </InputGroup>
             <InputGroup>
                 <InputGroup.Prepend>
                     <InputGroup.Text>Krotki opis</InputGroup.Text>
                 </InputGroup.Prepend>
-                <FormControl as="textarea" aria-label="With textarea"/>
+                <FormControl as="textarea" aria-label="With textarea" onChange={text => setForm(prevState => {
+                    return {...prevState, shortText: text};
+                })}/>
             </InputGroup>
-
-            <CategoryDropdown/>
 
             <ButtonMenu>
                 <Button variant="secondary" onClick={props.handleClose}>
                     Anuluj
                 </Button>
-                <Button variant="primary" onClick={props.handleClose}>
+                <Button variant="primary" onClick={validateForm}>
                     Zarezerwuj
                 </Button>
             </ButtonMenu>
