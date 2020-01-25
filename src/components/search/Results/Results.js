@@ -47,56 +47,12 @@ workers.push(worker0, worker1, worker2, worker3, worker4);
 
 class Results extends React.Component {
     state = {
-        counter: 0,
-        dana: this.props.dana_result
+        counter: 0
     };
-
-
-
-    filtruj = () => {
-
-        console.log('Filtruje!');
-        const res_workers = [];
-        for (let i = 0; i < workers.length; i++) {
-            if (workers[i].odleglosc < this.props.dist) {
-                if (!res_workers.includes(workers[i])) res_workers.push(workers[i]);
-            }
-        }
-
-
-        for (let i = 0; i < res_workers.length; i++) {
-            let res_jsx =
-                <Result modalOpen={this.props.modalOpen}
-                        nazwa={res_workers[i].nazwa}
-                        specjalizacja={res_workers[i].specjalizacja}
-                        opis={res_workers[i].opis}
-                        ocena={res_workers[i].ocena}
-                        odleglosc={res_workers[i].odleglosc}
-                />;
-            //list_jsx_res.push(res_jsx);
-        }
-        this.state.counter += 1;
-        this.forceUpdate();
-        //console.log(list_jsx_res)
-    };
-
-    // static getDerivedStateFromProps(props,state){
-    //     if (props.dana_result !== state.dana_result) {
-    //         return {
-    //             dana_result: props.dana_result
-    //         };
-    //     }
-    //     return null;
-    // }
-
-    componentWillReceiveProps(nextProps, nextContext) {
-        if(nextProps.dana_result!==this.props.dana_result){
-            this.setState({dana:nextProps.dana_result})
-        }
-    }
 
     render() {
-        console.log(this.state.dana);
+        let licz = this.props.liczn;
+        console.log(licz);
         const list_jsx_res = [];
         const res_workers = [];
         for (let i = 0; i < workers.length; i++) {
@@ -117,11 +73,6 @@ class Results extends React.Component {
                 />;
             list_jsx_res.push(res_jsx);
         }
-        // this.state.counter+=1;
-        // this.forceUpdate();
-        //console.log(list_jsx_res);
-        // console.log('Drukuje boxy result!');
-        // console.log(this.props.boxy);
         return (
             <Auxiliray>
 

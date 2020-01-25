@@ -6,6 +6,9 @@ import RangeBar from './RangeBar/RangeBar'
 class Filters extends React.Component {
     state = {
         range: 0,
+        licznik: this.props.licznik,
+        distance:this.props.distance,
+
         type:
             {
                 rem: false,
@@ -17,8 +20,31 @@ class Filters extends React.Component {
                 stol: false
             },
         dana_filtr: 0,
-        licznik:this.props.licznik
     };
+
+
+    handleIncLicznik    = () => {
+        let nowe=this.state.licznik+1;
+        this.setState({licznik: nowe}, this.handleChangeLicznik);
+    };
+
+    handleChangeLicznik = () => {
+        this.props.onLicznikChange(this.state.licznik)
+    };
+
+
+    handleDist=(e)=>{
+        let nowe=e.target.value;
+        this.setState({distance:nowe},this.handleChangeDist)
+
+    };
+
+    handleChangeDist=()=>{
+        this.props.onDistanceChange(this.state.distance)
+    };
+
+
+
 
     toggleCheck = (e, licznik) => {
         const name = e.target.name;
@@ -31,31 +57,20 @@ class Filters extends React.Component {
                 }
             }
         });
-        // this.setState({dana_filtr: (this.state.dana_filtr + 1)})
-        // this.props.test_cal(this.state.dana_filtr);
         this.props.filtersCalCheck(this.state.type);
-        // this.props.onLicznikChange(e.target.value);
-    };
-    rangeChangeHandler = (e) => {
-        this.setState({range: e.target.value});
-        console.log('km w filters ' + this.state.range);
-        this.props.filtersCalDist(this.state.range)
     };
 
-    handleChangeLicznik=(e)=>{
-        this.props.onLicznikChange(this.state.licznik++)
-    };
+
+    // rangeChangeHandler = (e) => {
+    //     this.setState({range: e.target.value});
+    //     console.log('km w filters ' + this.state.range);
+    //     this.props.filtersCalDist(this.state.range)
+    // };
+
 
     render() {
-        let licznik = this.props.licznik;
-        const licznik_change = () => {
-            licznik++;
-        };
-
-        //console.log(this.state.type.pomoc);
         const stylek = {
-            // background: 'linear-gradient(90deg,rgb(117,252,117) '+ {this.state.range}+', rgb(214,214,214)'+ 60%+')'
-            background: `linear-gradient(90deg,lightskyblue ${this.state.range * 10}%, #95a5a6 ${this.state.range}%)`
+            background: `linear-gradient(90deg,lightskyblue ${this.state.distance * 10}%, #95a5a6 ${this.state.distance}%)`
         };
         return (
             <Auxiliray>
@@ -77,9 +92,9 @@ class Filters extends React.Component {
                     <ul>
                         <li>
                             <label><input type='checkbox'
-                                          checked={this.state.licznik}
+                                          checked={this.state.rem}
                                           name={'rem'}
-                                          onChange={this.handleChangeLicznik}
+                                          onChange={this.handleIncLicznik}
                             />Test
                             </label>
                         </li>
@@ -135,8 +150,8 @@ class Filters extends React.Component {
                     <h2>Odległość</h2>
                     <div className={styles.SlideContainer}>
                         <input id='myRange' step='0.1' className={styles.Slide} style={stylek} type='range' min='0'
-                               max='10' value={this.state.range} onChange={this.rangeChangeHandler}/>
-                        <p>{this.state.range} km</p>
+                               max='10' value={this.state.distance} onChange={this.handleDist}/>
+                        <p>{this.state.distance} km</p>
                     </div>
                     <div className={styles.zastosuj}>
                         {/*<button onClick={this.props.hanStarFil}>Zastosuj</button>*/}
