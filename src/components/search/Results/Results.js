@@ -3,10 +3,10 @@ import Result from "./result/result";
 import styles from './Results.module.css'
 import Labels from "../Labels/Labels";
 import Auxiliray from '../../../hoc/Auxiliary/Auxiliary'
-import kekw from '../../../assets/img/kekw.png'
-
+import happy from '../../../assets/img/pepehappy.png'
 const workers = [];
 const worker0 = {
+    photo:happy,
     id: '0',
     nazwa: 'Cleanix',
     specjalizacja: ['Sprzatanie'],
@@ -131,7 +131,7 @@ class Results extends React.Component {
                         setEvents={this.props.setEvents}
                         events={res_workers[i].events}
                         key={res_workers[i].id}
-                        photo={kekw}
+                        photo={res_workers[i].photo}
                 />;
             list_jsx_res.push(res_jsx);
         }
