@@ -1,19 +1,15 @@
 import React from "react";
 import Auxiliary from '../../../../hoc/Auxiliary/Auxiliary'
-import kekw from '../../../../assets/img/kekw.png'
+
 import styles from './result.module.css'
-import styles2 from '../../Labels/Labels.module.css'
+
 class Result extends React.Component {
-    clickHandler=(e)=>{
-        console.log('klik');
+    const;
+    handleClick = () => {
+        this.props.setEvents({events: this.props.events});
+        this.props.modalOpen();
     };
 
-    print_cat=()=>{
-        for(let i=0;i<this.props.specjalizacja.size;i++)
-        {
-
-        }
-    };
     render() {
         return (
             <Auxiliary>
@@ -22,7 +18,7 @@ class Result extends React.Component {
                     {/*<p className={styles.zdj}>*/}
                     {/*    <img src={kekw} alt='kekw'/></p>*/}
                     <p className={styles.zdj}>
-                        <img  src={kekw} alt='kekw'/>
+                        <img src={this.props.photo} alt='kekw'/>
                     </p>
 
                     <p className={styles.nazwa_firmy}>{this.props.nazwa}</p>
@@ -31,7 +27,7 @@ class Result extends React.Component {
                     <p className={styles.ocena}>{this.props.ocena}</p>
                     <p className={styles.km}>{this.props.odleglosc} km</p>
                     <p className={styles.zamow}>
-                        <button onClick={this.props.modalOpen}>Zamow</button>
+                        <button onClick={this.handleClick}>Zamow</button>
                     </p>
 
                 </div>

@@ -1,4 +1,4 @@
-import React from "react";
+import React, {useState} from "react";
 import {Button, FormControl, InputGroup, Jumbotron, Modal} from "react-bootstrap";
 import {getStatusFromEvent, mockedEvents} from "../utils/mockedEvents";
 import BeautyStars from "beauty-stars";
@@ -15,6 +15,8 @@ padding: 16px;
 export default function EventModal(props) {
     let event = mockedEvents.find(event => event.id === props.id);
 
+    const [stars, setStars] = useState(event.rate);
+
     function getRatingComponent(rating) {
         return (
             <div>
@@ -25,9 +27,10 @@ export default function EventModal(props) {
                     <BeautyStars
                         value={rating.cost}
                         onChange={value => {
-                            rating.cost = value;
-                            console.log(rating);
-                            return rating;
+                            event.state === 'finished' &&
+                            setStars(prevState => {
+                                return {...prevState, cost: value};
+                            })
                         }}
                     />
                 </Rating>
@@ -37,6 +40,12 @@ export default function EventModal(props) {
                     </>
                     <BeautyStars
                         value={rating.quality}
+                        onChange={value => {
+                            event.state === 'finished' &&
+                            setStars(prevState => {
+                                return {...prevState, quality: value};
+                            })
+                        }}
                     />
                 </Rating>
                 <Rating>
@@ -45,6 +54,12 @@ export default function EventModal(props) {
                     </>
                     <BeautyStars
                         value={rating.time}
+                        onChange={value => {
+                            event.state === 'finished' &&
+                            setStars(prevState => {
+                                return {...prevState, time: value};
+                            })
+                        }}
                     />
                 </Rating>
             </div>
@@ -86,7 +101,7 @@ export default function EventModal(props) {
 
                 {event.state === 'active' ? <></> : (
                     <div>
-                        {getRatingComponent(event.rate)}
+                        {getRatingComponent(stars)}
                         <InputGroup>
                             <InputGroup.Prepend>
                                 <InputGroup.Text>Ocena</InputGroup.Text>

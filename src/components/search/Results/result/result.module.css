@@ -85,3 +85,15 @@
     border-width: thin;
     border-color: dodgerblue;
 }
+
+.zamow button:focus{
+    outline: none;
+}
+
+.zamow button:hover{
+    background-color: lightskyblue;
+}
+
+.zamow button:active{
+    background-color: dodgerblue;
+}
