@@ -28,6 +28,7 @@ class Result extends React.Component {
                     <p className={styles.km}>{this.props.odleglosc} km</p>
                     <p className={styles.zamow}>
                         <button onClick={this.handleClick}>Zamow</button>
+                        <button >Zobacz Kalendarz</button>
                     </p>
 
                 </div>

@@ -84,6 +84,7 @@
     border-style: solid;
     border-width: thin;
     border-color: dodgerblue;
+    margin-bottom: 10px;
 }
 
 .zamow button:focus{
