@@ -7,7 +7,7 @@ import Auxiliray from '../../../hoc/Auxiliary/Auxiliary'
 const workers = [];
 const worker0 = {
     nazwa: 'Cleanix',
-    specjalizacja: 'Sprzatanie',
+    specjalizacja: ['Sprzatanie'],
     opis: 'Działamy na rynku od 30 lat!',
     ocena: 4,
     odleglosc: 3
@@ -15,28 +15,28 @@ const worker0 = {
 
 const worker1 = {
     nazwa: 'PolBud',
-    specjalizacja: ['Usługi remontowe', <br/>, 'Uslugi budowlane'],
+    specjalizacja: ['Uslugi Remontowe', <br/>, 'Uslugi Budowlane'],
     opis: 'Jesteśmy najlepsi w budowaniu domów i nie tylko (umiemy zaprojektować basen)!',
     ocena: 3,
     odleglosc: 7
 };
 const worker2 = {
     nazwa: 'Stolarz & Sons',
-    specjalizacja: 'Uslugi Stolarskie',
+    specjalizacja: ['Uslugi Stolarskie'],
     opis: 'Rodzinna firma, gdzie jakość produktu i zadowlenia klienta to priorytet!',
     ocena: 5,
     odleglosc: 2
 };
 const worker3 = {
     nazwa: 'Prawdziwi Artyści',
-    specjalizacja: ['Malowanie', <br/>, 'Sprzątanie'],
+    specjalizacja: ['Malowanie', <br/>, 'Sprzatanie'],
     opis: 'Studenci ASP, chętni do pomalowania domu. Po wykonanej pracy możemy nawet posprzątać za dodatkową opłatą',
     ocena: 2,
     odleglosc: 1.2
 };
 const worker4 = {
     nazwa: 'Kucharek',
-    specjalizacja: 'Pomoc kuchenna',
+    specjalizacja: ['Pomoc Kuchenna'],
     opis: 'Nowoczene smaki i tradycyjna kultura obsługi!',
     ocena: 4,
     odleglosc: 9
@@ -51,12 +51,21 @@ class Results extends React.Component {
     };
 
     render() {
+        let checksArr=this.props.checks;
         let licz = this.props.liczn;
-        console.log(licz);
         const list_jsx_res = [];
         const res_workers = [];
+        console.log(checksArr.get('Pomoc Kuchenna'));
+
         for (let i = 0; i < workers.length; i++) {
-            if (workers[i].odleglosc < this.props.dist) {
+            let checksValidation=false;
+            for (let j=0;j<workers[i].specjalizacja.length;j++){
+                if (checksArr.get(workers[i].specjalizacja[j])){
+                    checksValidation=true;
+                }
+            }
+            if (workers[i].odleglosc < this.props.dist && checksValidation) {
+
                 if (!res_workers.includes(workers[i])) res_workers.push(workers[i]);
             }
         }
@@ -80,7 +89,6 @@ class Results extends React.Component {
                     <Labels/>
                     {list_jsx_res}
                 </div>
-                {/*<button className={styles.but} onClick={this.filtruj.bind(this)}>Zastosóój</button>*/}
             </Auxiliray>
         );
     }

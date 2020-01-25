@@ -5,26 +5,14 @@ import RangeBar from './RangeBar/RangeBar'
 
 class Filters extends React.Component {
     state = {
-        range: 0,
         licznik: this.props.licznik,
-        distance:this.props.distance,
-
-        type:
-            {
-                rem: false,
-                bud: false,
-                mal: false,
-                pomoc: false,
-                hyd: false,
-                sprz: false,
-                stol: false
-            },
-        dana_filtr: 0,
+        distance: this.props.distance,
+        checskMap: this.props.checks,
     };
 
 
-    handleIncLicznik    = () => {
-        let nowe=this.state.licznik+1;
+    handleIncLicznik = () => {
+        let nowe = this.state.licznik + 1;
         this.setState({licznik: nowe}, this.handleChangeLicznik);
     };
 
@@ -33,39 +21,28 @@ class Filters extends React.Component {
     };
 
 
-    handleDist=(e)=>{
-        let nowe=e.target.value;
-        this.setState({distance:nowe},this.handleChangeDist)
+    handleDist = (e) => {
+        let nowe = e.target.value;
+        this.setState({distance: nowe}, this.handleChangeDist)
 
     };
 
-    handleChangeDist=()=>{
+    handleChangeDist = () => {
         this.props.onDistanceChange(this.state.distance)
     };
 
 
-
-
-    toggleCheck = (e, licznik) => {
+    handleCheckToggle = (e) => {
         const name = e.target.name;
-        const checked = e.target.checked;
-        this.setState((prevState) => {
-            return {
-                type: {
-                    ...prevState.type,
-                    [name]: !prevState.type[name]
-                }
-            }
-        });
-        this.props.filtersCalCheck(this.state.type);
+        let mapcopy=this.state.checskMap;
+        let val=!mapcopy.get(name);
+        mapcopy.set(name,val);
+        this.setState({checskMap:mapcopy},this.handleCheck);
     };
 
-
-    // rangeChangeHandler = (e) => {
-    //     this.setState({range: e.target.value});
-    //     console.log('km w filters ' + this.state.range);
-    //     this.props.filtersCalDist(this.state.range)
-    // };
+    handleCheck = () => {
+        this.props.onCheckChange(this.state.checskMap)
+    };
 
 
     render() {
@@ -88,65 +65,6 @@ class Filters extends React.Component {
                         </div>
                     </div>
 
-                    <h2>Kategorie</h2>
-                    <ul>
-                        <li>
-                            <label><input type='checkbox'
-                                          checked={this.state.rem}
-                                          name={'rem'}
-                                          onChange={this.handleIncLicznik}
-                            />Test
-                            </label>
-                        </li>
-                        <li>
-                            <label><input type='checkbox'
-                                          checked={this.state.type.rem}
-                                          name={'rem'}
-                                          onChange={this.toggleCheck}/>Usługi remontowe
-                            </label>
-                        </li>
-                        <li>
-                            <label><input type='checkbox'
-                                          checked={this.state.type.hyd}
-                                          name={'hyd'}
-                                          onChange={this.toggleCheck}/>Usługi
-                                hydrauliczne</label>
-                        </li>
-                        <li>
-                            <label><input type='checkbox'
-                                          checked={this.state.type.bud}
-                                          name={'bud'}
-                                          onChange={this.toggleCheck}/>Usługi
-                                budowlane</label>
-                        </li>
-                        <li>
-                            <label><input type='checkbox'
-                                          checked={this.state.type.stol}
-                                          name={'stol'}
-                                          onChange={this.toggleCheck}/>Usługi
-                                stolarskie</label>
-                        </li>
-                        <li>
-                            <label><input type='checkbox'
-                                          checked={this.state.type.pomoc}
-                                          name={'pomoc'}
-                                          onChange={this.toggleCheck}
-                            />Pomoc kuchenna</label>
-                        </li>
-                        <li>
-                            <label><input type='checkbox' checked={this.state.type.mal}
-                                          name={'mal'}
-                                          onChange={this.toggleCheck}/>Malowanie</label>
-                        </li>
-                        <li>
-                            <label><input type='checkbox' checked={this.state.type.sprz}
-                                          name={'sprz'}
-                                // onChange={this.toggleCheck}
-                                          onChange={this.toggleCheck}
-                            />Sprzątanie
-                            </label>
-                        </li>
-                    </ul>
                     <h2>Odległość</h2>
                     <div className={styles.SlideContainer}>
                         <input id='myRange' step='0.1' className={styles.Slide} style={stylek} type='range' min='0'
@@ -154,8 +72,64 @@ class Filters extends React.Component {
                         <p>{this.state.distance} km</p>
                     </div>
                     <div className={styles.zastosuj}>
-                        {/*<button onClick={this.props.hanStarFil}>Zastosuj</button>*/}
+                        <button onClick={this.handleIncLicznik}
+                        >Zastosuj kategorie
+                        </button>
                     </div>
+
+                    <h2>Kategorie</h2>
+                    <ul>
+                        <li>
+                            <label><input type='checkbox'
+                                          checked={this.state.checskMap['Uslugi Remontowe']}
+                                          name={'Uslugi Remontowe'}
+                                          onChange={this.handleCheckToggle}/>Usługi remontowe
+                            </label>
+                        </li>
+                        <li>
+                            <label><input type='checkbox'
+                                          checked={this.state.checskMap['Uslugi Hydrauliczne']}
+                                          name={'Uslugi Hydrauliczne'}
+                                          onChange={this.handleCheckToggle}/>Usługi
+                                hydrauliczne</label>
+                        </li>
+                        <li>
+                            <label><input type='checkbox'
+                                          checked={this.state.checskMap['Uslugi Budowlane']}
+                                          name={'Uslugi Budowlane'}
+                                          onChange={this.handleCheckToggle}/>Usługi
+                                budowlane</label>
+                        </li>
+                        <li>
+                            <label><input type='checkbox'
+                                          checked={this.state.checskMap['Uslugi Stolarskie']}
+                                          name={'Uslugi Stolarskie'}
+                                          onChange={this.handleCheckToggle}/>Usługi
+                                stolarskie</label>
+                        </li>
+                        <li>
+                            <label><input type='checkbox'
+                                          checked={this.state.checskMap['Pomoc Kuchenna']}
+                                          name={'Pomoc Kuchenna'}
+                                          onChange={this.handleCheckToggle}
+                            />Pomoc kuchenna</label>
+                        </li>
+                        <li>
+                            <label><input type='checkbox'
+                                          checked={this.state.checskMap['Malowanie']}
+                                          name={'Malowanie'}
+                                          onChange={this.handleCheckToggle}/>Malowanie</label>
+                        </li>
+                        <li>
+                            <label><input type='checkbox'
+                                          checked={this.state.checskMap['Sprzatanie']}
+                                          name={'Sprzatanie'}
+                                          onChange={this.handleCheckToggle}
+                            />Sprzątanie
+                            </label>
+                        </li>
+                    </ul>
+
 
                 </div>
 
