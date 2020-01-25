@@ -4,9 +4,22 @@ import styles from './Results.module.css'
 import Labels from "../Labels/Labels";
 import Auxiliray from '../../../hoc/Auxiliary/Auxiliary'
 import happy from '../../../assets/img/pepehappy.png'
+import cleanix from '../../../assets/img/cleanix.png'
+import polbud from '../../../assets/img/polbud.png'
+import ss from '../../../assets/img/stolarz.png'
+import pa from '../../../assets/img/1000_F_104881269_SIBZVzIxn6gAFSmP5LURdycf9v2IxK6F.png'
+import kucharek from '../../../assets/img/kucharek.png'
+import hydraulex from '../../../assets/img/hydraulex.png'
+import budimax from '../../../assets/img/budimax.png'
+import kuchnia from '../../../assets/img/kuchnia.png'
+import sprzatanie from '../../../assets/img/sprzatanie.png'
+import grzegrzi from '../../../assets/img/grzegrzi.png'
+import pipex from '../../../assets/img/pipex.png'
+import verado from '../../../assets/img/verado.png'
+
 const workers = [];
 const worker0 = {
-    photo:happy,
+    photo: cleanix,
     id: '0',
     nazwa: 'Cleanix',
     specjalizacja: ['Sprzatanie'],
@@ -41,43 +54,350 @@ const worker0 = {
 };
 
 const worker1 = {
+    photo: polbud,
     id: '1',
     nazwa: 'PolBud',
     specjalizacja: ['Uslugi Remontowe', <br/>, 'Uslugi Budowlane'],
     opis: 'Jesteśmy najlepsi w budowaniu domów i nie tylko (umiemy zaprojektować basen)!',
     ocena: 3,
     odleglosc: 7,
-    events: [{}]
+    events: [
+        {
+        id: '1',
+        title: '',
+        start: '2020-01-28T10:00:00',
+        end: '2020-01-28T18:00:00',
+        textColor: 'rgba(224, 224, 224)',
+        backgroundColor: 'rgba(224, 224, 224)',
+        },
+        {
+        id: '2',
+        title: '',
+        start: '2020-01-29T13:00:00',
+        end: '2020-01-29T17:00:00',
+        textColor: 'rgba(224, 224, 224)',
+        backgroundColor: 'rgba(224, 224, 224)',
+    }]
 };
 const worker2 = {
+    photo: ss,
     id: '2',
     nazwa: 'Stolarz & Sons',
     specjalizacja: ['Uslugi Stolarskie'],
     opis: 'Rodzinna firma, gdzie jakość produktu i zadowlenia klienta to priorytet!',
     ocena: 5,
     odleglosc: 2,
-    events: [{}]
+    events: [
+        {
+            id: '1',
+            title: '',
+            start: '2020-02-01T14:00:00',
+            end: '2020-02-01T16:00:00',
+            textColor: 'rgba(224, 224, 224)',
+            backgroundColor: 'rgba(224, 224, 224)',
+        },
+        {
+            id: '2',
+            title: '',
+            start: '2020-01-29T13:00:00',
+            end: '2020-01-29T17:00:00',
+            textColor: 'rgba(224, 224, 224)',
+            backgroundColor: 'rgba(224, 224, 224)',
+        }
+    ]
 };
 const worker3 = {
+    photo: pa,
     id: '3',
     nazwa: 'Prawdziwi Artyści',
     specjalizacja: ['Malowanie', <br/>, 'Sprzatanie'],
     opis: 'Studenci ASP, chętni do pomalowania domu. Po wykonanej pracy możemy nawet posprzątać za dodatkową opłatą',
     ocena: 2,
     odleglosc: 1.2,
-    events: [{}]
+    events: [
+    {
+        id: '1',
+        title: '',
+        start: '2020-01-27T11:00:00',
+        end: '2020-01-27T19:00:00',
+        textColor: 'rgba(224, 224, 224)',
+        backgroundColor: 'rgba(224, 224, 224)',
+    },
+    {
+        id: '2',
+        title: '',
+        start: '2020-01-29T08:00:00',
+        end: '2020-01-29T16:00:00',
+        textColor: 'rgba(224, 224, 224)',
+        backgroundColor: 'rgba(224, 224, 224)',
+    },
+    {
+        id: '3',
+        title: '',
+        start: '2020-01-30T12:00:00',
+        end: '2020-01-30T15:00:00',
+        textColor: 'rgba(224, 224, 224)',
+        backgroundColor: 'rgba(224, 224, 224)',
+    }
+]
 };
 const worker4 = {
+    photo: kucharek,
     id: '4',
     nazwa: 'Kucharek',
     specjalizacja: ['Pomoc Kuchenna'],
     opis: 'Nowoczene smaki i tradycyjna kultura obsługi!',
     ocena: 4,
     odleglosc: 9,
-    events: [{}]
+    events: [
+        {
+        id: '1',
+        title: '',
+        start: '2020-02-01T08:00:00',
+        end: '2020-02-01T14:00:00',
+        textColor: 'rgba(224, 224, 224)',
+        backgroundColor: 'rgba(224, 224, 224)',
+    },
+        {
+            id: '2',
+            title: '',
+            start: '2020-01-29T10:00:00',
+            end: '2020-01-29T12:00:00',
+            textColor: 'rgba(224, 224, 224)',
+            backgroundColor: 'rgba(224, 224, 224)',
+        },
+        {
+            id: '3',
+            title: '',
+            start: '2020-01-29T14:00:00',
+            end: '2020-01-29T18:00:00',
+            textColor: 'rgba(224, 224, 224)',
+            backgroundColor: 'rgba(224, 224, 224)',
+        },
+        {
+            id: '4',
+            title: '',
+            start: '2020-01-27T11:00:00',
+            end: '2020-01-27T13:00:00',
+            textColor: 'rgba(224, 224, 224)',
+            backgroundColor: 'rgba(224, 224, 224)',
+        }
+        ]
+
+};
+const worker5 = {
+    photo: hydraulex,
+    id: '5',
+    nazwa: 'Hydriulex',
+    specjalizacja: ['Uslugi Hydrauliczne'],
+    opis: 'Zajmujemy się hydrauliką od 15 lat. Nasz zespół będzie w stanie pomóc Ci z każdą usterką!',
+    ocena: 5,
+    odleglosc: 5.4,
+    events: [
+        {
+            id: '1',
+            title: '',
+            start: '2020-01-29T08:00:00',
+            end: '2020-01-29T18:00:00',
+            textColor: 'rgba(224, 224, 224)',
+            backgroundColor: 'rgba(224, 224, 224)',
+        },
+        {
+            id: '2',
+            title: '',
+            start: '2020-01-27T17:00:00',
+            end: '2020-01-27T13:00:00',
+            textColor: 'rgba(224, 224, 224)',
+            backgroundColor: 'rgba(224, 224, 224)',
+        }
+    ]
+};
+const worker6 = {
+    photo: budimax,
+    id: '6',
+    nazwa: 'Budimax',
+    specjalizacja: ['Uslugi Budowlane'],
+    opis: 'Budowa domów, elewacje, wylewki u nas to nie przelewki!',
+    ocena: 4,
+    odleglosc: 2.4,
+    events: [
+        {
+            id: '1',
+            title: '',
+            start: '2020-01-29T10:00:00',
+            end: '2020-01-29T12:00:00',
+            textColor: 'rgba(224, 224, 224)',
+            backgroundColor: 'rgba(224, 224, 224)',
+        },
+        {
+            id: '2',
+            title: '',
+            start: '2020-01-28T09:00:00',
+            end: '2020-01-28T19:00:00',
+            textColor: 'rgba(224, 224, 224)',
+            backgroundColor: 'rgba(224, 224, 224)',
+        }
+    ]
+};
+const worker7 = {
+    photo: kuchnia,
+    id: '7',
+    nazwa: 'Kuchnia Zosi',
+    specjalizacja: ['Pomoc Kuchenna'],
+    opis: 'Specjalizuje się w kuchni polskiej. Receptury których używam były stosowane i udoskonalane od pokoleń w mojej rodzinie.',
+    ocena: 3,
+    odleglosc: 6.4,
+    events: [
+        {
+            id: '1',
+            title: '',
+            start: '2020-02-04T08:00:00',
+            end: '2020-02-04T18:00:00',
+            textColor: 'rgba(224, 224, 224)',
+            backgroundColor: 'rgba(224, 224, 224)',
+        },
+        {
+            id: '2',
+            title: '',
+            start: '2020-02-05T11:00:00',
+            end: '2020-02-05T19:00:00',
+            textColor: 'rgba(224, 224, 224)',
+            backgroundColor: 'rgba(224, 224, 224)',
+        }
+    ]
+};
+const worker8 = {
+    photo: sprzatanie,
+    id: '8',
+    nazwa: 'Sprzątanie z Klasą',
+    specjalizacja: ['Sprzatanie'],
+    opis: 'Gdy tylko skończymy, twoje mieszkanie będzie błyszczeć!',
+    ocena: 4,
+    odleglosc: 0.3,
+    events: [
+        {
+            id: '1',
+            title: '',
+            start: '2020-01-29T08:00:00',
+            end: '2020-01-29T18:00:00',
+            textColor: 'rgba(224, 224, 224)',
+            backgroundColor: 'rgba(224, 224, 224)',
+        },
+        {
+            id: '2',
+            title: '',
+            start: '2020-01-27T17:00:00',
+            end: '2020-01-27T13:00:00',
+            textColor: 'rgba(224, 224, 224)',
+            backgroundColor: 'rgba(224, 224, 224)',
+        },
+        {
+            id: '3',
+            title: '',
+            start: '2020-01-30T08:00:00',
+            end: '2020-01-30T14:00:00',
+            textColor: 'rgba(224, 224, 224)',
+            backgroundColor: 'rgba(224, 224, 224)',
+        },
+        {
+            id: '4',
+            title: '',
+            start: '2020-02-04T09:00:00',
+            end: '2020-02-02T15:00:00',
+            textColor: 'rgba(224, 224, 224)',
+            backgroundColor: 'rgba(224, 224, 224)',
+        }
+    ]
+};
+const worker9 = {
+    photo: grzegrzi,
+    id: '9',
+    nazwa: 'Grzegrzix',
+    specjalizacja: ['Uslugi Stolarskie'],
+    opis: 'Chcesz mieć biurko na wymiar? A chciałbyś mieć w swoim domu nieszablonowe schody? Wykonamy dla Ciebie z drewna co tylko chcesz!',
+    ocena: 5,
+    odleglosc: 3.4,
+    events: [{
+        id: '1',
+        title: '',
+        start: '2020-01-29T10:00:00',
+        end: '2020-01-29T11:00:00',
+        textColor: 'rgba(224, 224, 224)',
+        backgroundColor: 'rgba(224, 224, 224)',
+    },
+        {
+            id: '2',
+            title: '',
+            start: '2020-01-29T13:00:00',
+            end: '2020-01-29T14:00:00',
+            textColor: 'rgba(224, 224, 224)',
+            backgroundColor: 'rgba(224, 224, 224)',
+        },
+        {
+            id: '3',
+            title: '',
+            start: '2020-01-29T16:00:00',
+            end: '2020-01-29T18:00:00',
+            textColor: 'rgba(224, 224, 224)',
+            backgroundColor: 'rgba(224, 224, 224)',
+        },
+        {
+            id: '4',
+            title: '',
+            start: '2020-01-30T12:00:00',
+            end: '2020-01-30T17:00:00',
+            textColor: 'rgba(224, 224, 224)',
+            backgroundColor: 'rgba(224, 224, 224)',
+        }]
+};
+const worker10 = {
+    photo: pipex,
+    id: '10',
+    nazwa: 'PipeX',
+    specjalizacja: ['Uslugi Hydrauliczne'],
+    opis: 'Poradzilibyśmy sobię z rurami nawet na Marsie.',
+    ocena: 4,
+    odleglosc: 7,
+    events: [
+        {
+            id: '1',
+            title: '',
+            start: '2020-01-29T08:00:00',
+            end: '2020-01-29T15:00:00',
+            textColor: 'rgba(224, 224, 224)',
+            backgroundColor: 'rgba(224, 224, 224)',
+        },
+        {
+            id: '2',
+            title: '',
+            start: '2020-01-27T11:00:00',
+            end: '2020-01-27T14:00:00',
+            textColor: 'rgba(224, 224, 224)',
+            backgroundColor: 'rgba(224, 224, 224)',
+        }
+    ]
+};
+const worker11 = {
+    photo: verado,
+    id: '11',
+    nazwa: 'Verado',
+    specjalizacja: ['Malowanie'],
+    opis: 'Malowanie wnętrz, z nami Twój świat będzie kolorowy.',
+    ocena: 2,
+    odleglosc: 4,
+    events: [
+        {
+            id: '1',
+            title: '',
+            start: '2020-01-29T08:00:00',
+            end: '2020-02-04T18:00:00',
+            textColor: 'rgba(224, 224, 224)',
+            backgroundColor: 'rgba(224, 224, 224)',
+        },
+    ]
 };
 
-workers.push(worker0, worker1, worker2, worker3, worker4);
+workers.push(worker0, worker1, worker2, worker3, worker4, worker5, worker6, worker7,worker8,worker9, worker10, worker11);
 
 
 class Results extends React.Component {
