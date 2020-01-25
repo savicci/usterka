@@ -26,14 +26,3 @@ export const contractors = [
         events: []
     }
 ];
-
-export const categories = [
-    {
-        id: 1,
-        type: 'Uslugi hydrauliczne'
-    },
-    {
-        id: 2,
-        type: 'Uslugi remontowe'
-    },
-];
