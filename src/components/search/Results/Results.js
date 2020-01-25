@@ -85,17 +85,16 @@ class Results extends React.Component {
     };
 
     render() {
-        let checksArr=this.props.checks;
+        let checksArr = this.props.checks;
         let licz = this.props.liczn;
         const list_jsx_res = [];
         const res_workers = [];
-        console.log(checksArr.get('Pomoc Kuchenna'));
 
         for (let i = 0; i < workers.length; i++) {
-            let checksValidation=false;
-            for (let j=0;j<workers[i].specjalizacja.length;j++){
-                if (checksArr.get(workers[i].specjalizacja[j])){
-                    checksValidation=true;
+            let checksValidation = false;
+            for (let j = 0; j < workers[i].specjalizacja.length; j++) {
+                if (checksArr.get(workers[i].specjalizacja[j])) {
+                    checksValidation = true;
                 }
             }
             if (workers[i].odleglosc < this.props.dist && checksValidation) {

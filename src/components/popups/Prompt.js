@@ -21,8 +21,8 @@ export const Prompt = (props) => {
         } else if (form.shortText === '') {
             props.setError({occured: true, message: 'Dodaj opis ogloszenia'})
         } else {
-            props.setError({occured: false, message: ''});
-            props.handleClose();
+            props.setError({occured: false, message: 'ok'});
+            props.handleClose(true);
         }
     };
 

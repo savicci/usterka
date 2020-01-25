@@ -37,10 +37,12 @@ export const CalendarModal = (props) => {
     };
 
 
-    const handleClose = () => {
+    const handleClose = (param) => {
         setReservation(undefined);
+        if (param) {
+            props.setShowToast();
+        }
         setError({occured: false, message: ''});
-        props.setShowToast();
         props.handleClose();
     };
 
