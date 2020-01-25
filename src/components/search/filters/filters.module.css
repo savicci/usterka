@@ -55,6 +55,19 @@
     border-style: solid;
     border-width: thin;
     border-color: dodgerblue;
+
+}
+
+.zastosuj button:focus{
+    outline: none;
+}
+
+.zastosuj button:hover{
+    background-color: lightskyblue;
+}
+
+.zastosuj button:active{
+    background-color: dodgerblue;
 }
 .Filtr li{
     margin: 14px 0;

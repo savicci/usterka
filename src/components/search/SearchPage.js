@@ -9,14 +9,18 @@ export const SearchPage = () => {
     const [show, setShow] = useState(false);
     const [licznik,setLicznik]=useState(0);
     const [checkBoxexArray,setCheckBoxexArray]=useState(new Map([
-        ['Uslugi Remontowe',false],
-        ['Uslugi Budowlane',false],
-        ['Malowanie',false],
-        ['Sprzatanie',false],
-        ['Uslugi Hydrauliczne',false],
-        ['Uslugi Stolarskie',false],
-        ['Pomoc Kuchenna',false]
+        ['Uslugi Remontowe',true],
+        ['Uslugi Budowlane',true],
+        ['Malowanie',true],
+        ['Sprzatanie',true],
+        ['Uslugi Hydrauliczne',true],
+        ['Uslugi Stolarskie',true],
+        ['Pomoc Kuchenna',true]
     ]));
+    const [searchWord,setSearchWord]=useState('');
+    const [sortAlf,setSortAlf]=useState('');
+
+    const handleSortAlf=(s)=>setSortAlf(s);
     const handleClose = () => setShow(false);
     const handleOpen = () => setShow(true);
     const handleLicznikChange=(licz)=>{
@@ -24,6 +28,8 @@ export const SearchPage = () => {
     };
     const handleDist = (dis) => setDist(dis);
     const handleCheckChange=(chan)=>setCheckBoxexArray(chan);
+    const handleWordChange=(txt)=>setSearchWord(txt);
+
     return (
         <div className={styles.Search}>
             <CalendarModal show={show} handleClose={handleClose}/>
@@ -35,6 +41,10 @@ export const SearchPage = () => {
                 distance={dist}
                 checks={checkBoxexArray}
                 onCheckChange={handleCheckChange}
+                word_f={searchWord}
+                onWordChange={handleWordChange}
+                sortA={sortAlf}
+                onSortA={handleSortAlf}
             />
 
             <Results
@@ -42,6 +52,8 @@ export const SearchPage = () => {
                 dist={dist}
                 liczn={licznik}
                 checks={checkBoxexArray}
+                word={searchWord}
+                sortAlfa={sortAlf}
             />
 
         </div>

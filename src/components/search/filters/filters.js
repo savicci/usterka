@@ -8,6 +8,24 @@ class Filters extends React.Component {
         licznik: this.props.licznik,
         distance: this.props.distance,
         checskMap: this.props.checks,
+        word_fi:this.props.word_f,
+        sort_A:this.props.sortA
+    };
+
+    handleSortA=()=>{
+      this.props.onSortA(this.state.sort_A);
+    };
+
+    handleChangeSortA=()=>{
+        this.setState({sort_A:'A'},this.handleSortA)
+    };
+
+    handleChangeSortO=()=>{
+        this.setState({sort_A:'O'},this.handleSortA)
+    };
+
+    handleChangeSortD=()=>{
+        this.setState({sort_A:'D'},this.handleSortA)
     };
 
 
@@ -34,14 +52,24 @@ class Filters extends React.Component {
 
     handleCheckToggle = (e) => {
         const name = e.target.name;
-        let mapcopy=this.state.checskMap;
-        let val=!mapcopy.get(name);
-        mapcopy.set(name,val);
-        this.setState({checskMap:mapcopy},this.handleCheck);
+        let mapcopy = this.state.checskMap;
+        let val = !mapcopy.get(name);
+        mapcopy.set(name, val);
+        this.setState({checskMap: mapcopy}, this.handleCheck);
     };
 
     handleCheck = () => {
         this.props.onCheckChange(this.state.checskMap)
+    };
+
+    handleChangeWord=(e)=>{
+        let w=e.target.value;
+        this.setState({word_fi:w},this.handleWord)
+
+    };
+
+    handleWord=()=>{
+        this.props.onWordChange(this.state.word_fi)
     };
 
 
@@ -54,14 +82,14 @@ class Filters extends React.Component {
                 <div className={styles.Filtr}>
 
                     <div className={styles.Inp}>
-                        <input placeholder='Czego dzisiaj szukasz? '></input>
+                        <input placeholder='Czego dzisiaj szukasz? ' onChange={this.handleChangeWord}/>
                     </div>
                     <div className={styles.sortowanie}>
                         <button className={styles.sortowanie_btn}>Sortuj po:</button>
                         <div className={styles.sort}>
-                            <a href='/'>Alfabetycznie</a>
-                            <a href='/'>Ocena</a>
-                            <a href='/'>Odleglosc</a>
+                            <a onClick={this.handleChangeSortA}>Alfabetycznie</a>
+                            <a onClick={this.handleChangeSortO}>Ocena</a>
+                            <a onClick={this.handleChangeSortD}>Odleglosc</a>
                         </div>
                     </div>
 
@@ -81,48 +109,48 @@ class Filters extends React.Component {
                     <ul>
                         <li>
                             <label><input type='checkbox'
-                                          checked={this.state.checskMap['Uslugi Remontowe']}
+                                          checked={this.props.checks.get('Uslugi Remontowe')}
                                           name={'Uslugi Remontowe'}
                                           onChange={this.handleCheckToggle}/>Usługi remontowe
                             </label>
                         </li>
                         <li>
                             <label><input type='checkbox'
-                                          checked={this.state.checskMap['Uslugi Hydrauliczne']}
+                                          checked={this.props.checks.get('Uslugi Hydrauliczne')}
                                           name={'Uslugi Hydrauliczne'}
                                           onChange={this.handleCheckToggle}/>Usługi
                                 hydrauliczne</label>
                         </li>
                         <li>
                             <label><input type='checkbox'
-                                          checked={this.state.checskMap['Uslugi Budowlane']}
+                                          checked={this.props.checks.get('Uslugi Budowlane')}
                                           name={'Uslugi Budowlane'}
                                           onChange={this.handleCheckToggle}/>Usługi
                                 budowlane</label>
                         </li>
                         <li>
                             <label><input type='checkbox'
-                                          checked={this.state.checskMap['Uslugi Stolarskie']}
+                                          checked={this.props.checks.get('Uslugi Stolarskie')}
                                           name={'Uslugi Stolarskie'}
                                           onChange={this.handleCheckToggle}/>Usługi
                                 stolarskie</label>
                         </li>
                         <li>
                             <label><input type='checkbox'
-                                          checked={this.state.checskMap['Pomoc Kuchenna']}
+                                          checked={this.props.checks.get('Pomoc Kuchenna')}
                                           name={'Pomoc Kuchenna'}
                                           onChange={this.handleCheckToggle}
                             />Pomoc kuchenna</label>
                         </li>
                         <li>
                             <label><input type='checkbox'
-                                          checked={this.state.checskMap['Malowanie']}
+                                          checked={this.props.checks.get('Malowanie')}
                                           name={'Malowanie'}
                                           onChange={this.handleCheckToggle}/>Malowanie</label>
                         </li>
                         <li>
                             <label><input type='checkbox'
-                                          checked={this.state.checskMap['Sprzatanie']}
+                                          checked={this.props.checks.get('Sprzatanie')}
                                           name={'Sprzatanie'}
                                           onChange={this.handleCheckToggle}
                             />Sprzątanie
