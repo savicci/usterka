@@ -3,6 +3,7 @@ import Result from "./result/result";
 import styles from './Results.module.css'
 import Labels from "../Labels/Labels";
 import Auxiliray from '../../../hoc/Auxiliary/Auxiliary'
+import kekw from '../../../assets/img/kekw.png'
 
 const workers = [];
 const worker0 = {
@@ -130,6 +131,7 @@ class Results extends React.Component {
                         setEvents={this.props.setEvents}
                         events={res_workers[i].events}
                         key={res_workers[i].id}
+                        photo={kekw}
                 />;
             list_jsx_res.push(res_jsx);
         }

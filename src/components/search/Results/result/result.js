@@ -1,19 +1,9 @@
 import React from "react";
 import Auxiliary from '../../../../hoc/Auxiliary/Auxiliary'
-import kekw from '../../../../assets/img/kekw.png'
+
 import styles from './result.module.css'
 
 class Result extends React.Component {
-    clickHandler = (e) => {
-        console.log('klik');
-    };
-
-    print_cat = () => {
-        for (let i = 0; i < this.props.specjalizacja.size; i++) {
-
-        }
-    };
-
     const;
     handleClick = () => {
         this.props.setEvents({events: this.props.events});
@@ -28,7 +18,7 @@ class Result extends React.Component {
                     {/*<p className={styles.zdj}>*/}
                     {/*    <img src={kekw} alt='kekw'/></p>*/}
                     <p className={styles.zdj}>
-                        <img src={kekw} alt='kekw'/>
+                        <img src={this.props.photo} alt='kekw'/>
                     </p>
 
                     <p className={styles.nazwa_firmy}>{this.props.nazwa}</p>
