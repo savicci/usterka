@@ -3,7 +3,7 @@ import FullCalendar from '@fullcalendar/react'
 import {getEventsWithColorsMapped, mockedEvents} from "../utils/mockedEvents";
 import timeGridPlugin from '@fullcalendar/timegrid';
 import {LegendBar} from "./LegendBar";
-import EventModal from "../popups/EventModal";
+import {EventModal} from "../popups/EventModal";
 
 import "./MainPage.css";
 

@@ -28,10 +28,11 @@ border: solid 1px;
 }
 `;
 
-export default function EventModal(props) {
+export const EventModal = (props) => {
     let event = mockedEvents.find(event => event.id === props.id);
 
     const [stars, setStars] = useState(event.rate);
+    const [input, setInput] = useState('');
 
     function getRatingComponent(rating) {
         return (
@@ -86,6 +87,7 @@ export default function EventModal(props) {
         props.setStateEvents(prevState => {
             let modified = Object.assign(event);
             modified.state = 'reviewed';
+            modified.rate.text = input;
 
             let newEvents = prevState.map(event => {
                 return event.id === props.id ? modified : event;
@@ -149,7 +151,12 @@ export default function EventModal(props) {
                             <InputGroup.Prepend>
                                 <InputGroup.Text>Ocena</InputGroup.Text>
                             </InputGroup.Prepend>
-                            <FormControl as="textarea" aria-label="With textarea"/>
+                            <FormControl as="textarea"
+                                         aria-label="With textarea"
+                                         defaultValue={event.rate.text}
+                                         onChange={text => setInput(text.target.value)}
+                                         disabled={event.state === 'reviewed'}
+                            />
                         </InputGroup>
                     </div>
                 )}
@@ -161,4 +168,4 @@ export default function EventModal(props) {
             </Modal.Footer>
         </Modal>
     );
-}
+};

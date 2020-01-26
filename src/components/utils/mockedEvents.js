@@ -18,6 +18,7 @@ export const mockedEvents = [
             cost: 3,
             quality: 3,
             time: 3,
+            text: '',
         },
         company: {
             name: 'Hydriulex',
@@ -36,6 +37,7 @@ export const mockedEvents = [
             cost: 3,
             quality: 3,
             time: 3,
+            text: '',
         },
         company: {
             name: 'Verado',
@@ -51,9 +53,10 @@ export const mockedEvents = [
         state: 'reviewed',
         text: 'Dzien dobry. Chcialbym aby pani firma sprzatajaca pomogla w posprzataniu domu przed urodzinami mojego syna. Prosze o kontakt telefoniczny na numer 324-523-255. Pozdrawiam',
         rate: {
-            cost: 3,
+            cost: 5,
             quality: 4,
-            time: 3,
+            time: 4,
+            text: 'Bardzo fajnie, tanio i szybko panie sie uwinely. Napewno skorzystam ponownie',
         },
         company: {
             name: 'Cleanix',
@@ -72,6 +75,7 @@ export const mockedEvents = [
             cost: 3,
             quality: 3,
             time: 3,
+            text: '',
         },
         company: {
             name: 'Kucharek',
@@ -90,6 +94,7 @@ export const mockedEvents = [
             cost: 3,
             quality: 4,
             time: 3,
+            text: '',
         },
         company: {
             name: 'PolBud',
@@ -108,6 +113,7 @@ export const mockedEvents = [
             cost: 3,
             quality: 4,
             time: 3,
+            text: '',
         },
         company: {
             name: 'Budimax',
