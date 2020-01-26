@@ -42,6 +42,7 @@ export const EventModal = (props) => {
                         <h3>Cena</h3>
                     </>
                     <BeautyStars
+                        activeColor={'#f7b731'}
                         value={rating.cost}
                         onChange={value => {
                             event.state === 'finished' &&
@@ -56,6 +57,7 @@ export const EventModal = (props) => {
                         <h3>Jakosc</h3>
                     </>
                     <BeautyStars
+                        activeColor={'#f7b731'}
                         value={rating.quality}
                         onChange={value => {
                             event.state === 'finished' &&
@@ -70,6 +72,7 @@ export const EventModal = (props) => {
                         <h3>Czas</h3>
                     </>
                     <BeautyStars
+                        activeColor={'#f7b731'}
                         value={rating.time}
                         onChange={value => {
                             event.state === 'finished' &&
