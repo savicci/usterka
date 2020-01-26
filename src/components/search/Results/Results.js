@@ -3,7 +3,6 @@ import Result from "./result/result";
 import styles from './Results.module.css'
 import Labels from "../Labels/Labels";
 import Auxiliray from '../../../hoc/Auxiliary/Auxiliary'
-import happy from '../../../assets/img/pepehappy.png'
 import cleanix from '../../../assets/img/cleanix.png'
 import polbud from '../../../assets/img/polbud.png'
 import ss from '../../../assets/img/stolarz.png'
@@ -63,21 +62,21 @@ const worker1 = {
     odleglosc: 7,
     events: [
         {
-        id: '1',
-        title: '',
-        start: '2020-01-28T10:00:00',
-        end: '2020-01-28T18:00:00',
-        textColor: 'rgba(224, 224, 224)',
-        backgroundColor: 'rgba(224, 224, 224)',
+            id: '1',
+            title: '',
+            start: '2020-01-28T10:00:00',
+            end: '2020-01-28T18:00:00',
+            textColor: 'rgba(224, 224, 224)',
+            backgroundColor: 'rgba(224, 224, 224)',
         },
         {
-        id: '2',
-        title: '',
-        start: '2020-01-29T13:00:00',
-        end: '2020-01-29T17:00:00',
-        textColor: 'rgba(224, 224, 224)',
-        backgroundColor: 'rgba(224, 224, 224)',
-    }]
+            id: '2',
+            title: '',
+            start: '2020-01-29T13:00:00',
+            end: '2020-01-29T17:00:00',
+            textColor: 'rgba(224, 224, 224)',
+            backgroundColor: 'rgba(224, 224, 224)',
+        }]
 };
 const worker2 = {
     photo: ss,
@@ -115,31 +114,31 @@ const worker3 = {
     ocena: 2,
     odleglosc: 1.2,
     events: [
-    {
-        id: '1',
-        title: '',
-        start: '2020-01-27T11:00:00',
-        end: '2020-01-27T19:00:00',
-        textColor: 'rgba(224, 224, 224)',
-        backgroundColor: 'rgba(224, 224, 224)',
-    },
-    {
-        id: '2',
-        title: '',
-        start: '2020-01-29T08:00:00',
-        end: '2020-01-29T16:00:00',
-        textColor: 'rgba(224, 224, 224)',
-        backgroundColor: 'rgba(224, 224, 224)',
-    },
-    {
-        id: '3',
-        title: '',
-        start: '2020-01-30T12:00:00',
-        end: '2020-01-30T15:00:00',
-        textColor: 'rgba(224, 224, 224)',
-        backgroundColor: 'rgba(224, 224, 224)',
-    }
-]
+        {
+            id: '1',
+            title: '',
+            start: '2020-01-27T11:00:00',
+            end: '2020-01-27T19:00:00',
+            textColor: 'rgba(224, 224, 224)',
+            backgroundColor: 'rgba(224, 224, 224)',
+        },
+        {
+            id: '2',
+            title: '',
+            start: '2020-01-29T08:00:00',
+            end: '2020-01-29T16:00:00',
+            textColor: 'rgba(224, 224, 224)',
+            backgroundColor: 'rgba(224, 224, 224)',
+        },
+        {
+            id: '3',
+            title: '',
+            start: '2020-01-30T12:00:00',
+            end: '2020-01-30T15:00:00',
+            textColor: 'rgba(224, 224, 224)',
+            backgroundColor: 'rgba(224, 224, 224)',
+        }
+    ]
 };
 const worker4 = {
     photo: kucharek,
@@ -151,13 +150,13 @@ const worker4 = {
     odleglosc: 9,
     events: [
         {
-        id: '1',
-        title: '',
-        start: '2020-02-01T08:00:00',
-        end: '2020-02-01T14:00:00',
-        textColor: 'rgba(224, 224, 224)',
-        backgroundColor: 'rgba(224, 224, 224)',
-    },
+            id: '1',
+            title: '',
+            start: '2020-02-01T08:00:00',
+            end: '2020-02-01T14:00:00',
+            textColor: 'rgba(224, 224, 224)',
+            backgroundColor: 'rgba(224, 224, 224)',
+        },
         {
             id: '2',
             title: '',
@@ -182,7 +181,7 @@ const worker4 = {
             textColor: 'rgba(224, 224, 224)',
             backgroundColor: 'rgba(224, 224, 224)',
         }
-        ]
+    ]
 
 };
 const worker5 = {
@@ -397,7 +396,7 @@ const worker11 = {
     ]
 };
 
-workers.push(worker0, worker1, worker2, worker3, worker4, worker5, worker6, worker7,worker8,worker9, worker10, worker11);
+workers.push(worker0, worker1, worker2, worker3, worker4, worker5, worker6, worker7, worker8, worker9, worker10, worker11);
 
 
 class Results extends React.Component {
@@ -406,36 +405,36 @@ class Results extends React.Component {
     };
 
     render() {
-        let sort_Alf=this.props.sortAlfa;
-        let word_r=this.props.word;
-        let checksArr=this.props.checks;
+        let sort_Alf = this.props.sortAlfa;
+        let word_r = this.props.word;
+        let checksArr = this.props.checks;
         let licz = this.props.liczn;
         const list_jsx_res = [];
         const res_workers = [];
         for (let i = 0; i < workers.length; i++) {
-            let checksValidation=false;
-            let checkSearchWord=false;
-            if(word_r==='' || workers[i].nazwa.includes(word_r)){
-                checkSearchWord=true;
+            let checksValidation = false;
+            let checkSearchWord = false;
+            if (word_r === '' || workers[i].nazwa.includes(word_r)) {
+                checkSearchWord = true;
             }
-            for (let j=0;j<workers[i].specjalizacja.length;j++){
-                if (checksArr.get(workers[i].specjalizacja[j])){
-                    checksValidation=true;
+            for (let j = 0; j < workers[i].specjalizacja.length; j++) {
+                if (checksArr.get(workers[i].specjalizacja[j])) {
+                    checksValidation = true;
                 }
             }
-            if (workers[i].odleglosc < this.props.dist && checksValidation &&checkSearchWord) {
+            if (workers[i].odleglosc < this.props.dist && checksValidation && checkSearchWord) {
 
                 if (!res_workers.includes(workers[i])) res_workers.push(workers[i]);
             }
         }
-        if(sort_Alf==='A') {
+        if (sort_Alf === 'A') {
             res_workers.sort((a, b) => (a.nazwa > b.nazwa) ? 1 : (a.nazwa === b.nazwa) ? ((a.nazwa > b.nazwa) ? 1 : -1) : -1)
         }
-        if(sort_Alf==='O'){
+        if (sort_Alf === 'O') {
             res_workers.sort((a, b) => (a.ocena > b.ocena) ? -1 : (a.ocena === b.ocena) ? ((a.ocena > b.ocena) ? -1 : 1) : 1)
         }
 
-        if(sort_Alf==='D'){
+        if (sort_Alf === 'D') {
             res_workers.sort((a, b) => (a.odleglosc > b.odleglosc) ? 1 : (a.odleglosc === b.odleglosc) ? ((a.odleglosc > b.odleglosc) ? 1 : -1) : -1)
         }
 
@@ -443,6 +442,7 @@ class Results extends React.Component {
         for (let i = 0; i < res_workers.length; i++) {
             let res_jsx =
                 <Result modalOpen={this.props.modalOpen}
+                        style={{backgroundColor: 'black'}}
                         nazwa={res_workers[i].nazwa}
                         specjalizacja={res_workers[i].specjalizacja}
                         opis={res_workers[i].opis}
@@ -453,6 +453,8 @@ class Results extends React.Component {
                         key={res_workers[i].id}
                         photo={res_workers[i].photo}
                         calendarOpen={this.props.calendarOpen}
+                        openCompany={this.props.openCompanyModal}
+                        setCompanyData={this.props.setCompanyData}
                 />;
             list_jsx_res.push(res_jsx);
         }

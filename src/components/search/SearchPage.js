@@ -5,6 +5,7 @@ import {ReservationModal} from "../popups/ReservationModal";
 import styles from './Search.module.css'
 import {SuccessToast} from "../utils/SuccessToast";
 import {CalendarModal} from "../popups/CalendarModal";
+import {CompanyModal} from "../popups/CompanyModal";
 
 
 const toastStyles = {
@@ -17,8 +18,12 @@ const toastStyles = {
 export const SearchPage = () => {
     const [dist, setDist] = useState(10);
 
+    // modals state
     const [showReservation, setShowReservation] = useState(false);
+    const [showCompany, setShowCompany] = useState(false);
     const [showCalendar, setShowCalendar] = useState(false);
+
+    const [companyData, setCompanyData] = useState({});
 
     const [licznik, setLicznik] = useState(0);
     const [checkBoxexArray, setCheckBoxexArray] = useState(new Map([
@@ -31,30 +36,27 @@ export const SearchPage = () => {
         ['Pomoc Kuchenna', true]
     ]));
     const [searchWord, setSearchWord] = useState('');
-    const [sortAlf, setSortAlf] = useState('');
 
+    const [sortAlf, setSortAlf] = useState('');
     const handleSortAlf = (s) => setSortAlf(s);
-    const handleReservationClose = () => setShowReservation(false);
-    const handleReservationOpen = () => setShowReservation(true);
+
     const [toast, setToast] = useState(false);
 
     const [events, setEvents] = useState(undefined);
-
     const handleLicznikChange = (licz) => {
         setLicznik(licz);
     };
     const handleDist = (dis) => setDist(dis);
     const handleCheckChange = (chan) => setCheckBoxexArray(chan);
-    const handleWordChange = (txt) => setSearchWord(txt);
 
-    const handleCalendarOpen = () => setShowCalendar(true);
-    const handleCalendarClose = () => setShowCalendar(false);
+    const handleWordChange = (txt) => setSearchWord(txt);
 
     return (
         <div className={styles.Search}>
-            <ReservationModal show={showReservation} handleClose={handleReservationClose} events={events}
+            <ReservationModal show={showReservation} handleClose={() => setShowReservation(false)} events={events}
                               setShowToast={() => setToast(true)}/>
-            <CalendarModal show={showCalendar} handleClose={handleCalendarClose} events={events}/>
+            <CalendarModal show={showCalendar} handleClose={() => setShowCalendar(false)} events={events}/>
+            <CompanyModal show={showCompany} handleClose={() => setShowCompany(false)} companyData={companyData}/>
             <SuccessToast show={toast} setShow={setToast}/>
 
             <Filters
@@ -71,14 +73,16 @@ export const SearchPage = () => {
             />
 
             <Results
-                modalOpen={handleReservationOpen}
+                modalOpen={() => setShowReservation(true)}
                 dist={dist}
                 liczn={licznik}
                 checks={checkBoxexArray}
                 setEvents={setEvents}
                 word={searchWord}
                 sortAlfa={sortAlf}
-                calendarOpen={handleCalendarOpen}
+                calendarOpen={() => setShowCalendar(true)}
+                openCompanyModal={() => setShowCompany(true)}
+                setCompanyData={setCompanyData}
             />
 
         </div>

@@ -5,20 +5,33 @@ import styles from './result.module.css'
 
 class Result extends React.Component {
 
-    handleClick = () => {
+    handleClick = (event) => {
         this.props.setEvents({events: this.props.events});
         this.props.modalOpen();
+        event.stopPropagation();
+
     };
 
-    handleCalendarClick = () => {
+    handleCalendarClick = (event) => {
         this.props.setEvents({events: this.props.events});
         this.props.calendarOpen();
+        event.stopPropagation();
+    };
+
+    // daniello tu sobie ustaw wszystko co chcesz miec w modalu do wizytowki
+    // potem spal ten list(usun komentarz)
+    handleCompanyClick = () => {
+        this.props.setCompanyData({
+           nazwa: this.props.nazwa
+        });
+
+        this.props.openCompany();
     };
 
     render() {
         return (
             <Auxiliary>
-                <div className={styles.result}>
+                <div className={styles.result} onClick={this.handleCompanyClick}>
 
                     {/*<p className={styles.zdj}>*/}
                     {/*    <img src={kekw} alt='kekw'/></p>*/}
