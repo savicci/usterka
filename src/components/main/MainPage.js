@@ -34,6 +34,7 @@ export const MainPage =  () => {
                     allDaySlot={false}
                     events={getEventsWithColorsMapped(events)}
                     eventClick={handleClick}
+                    height={720}
                 />
             </div>
         </div>

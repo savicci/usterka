@@ -6,15 +6,15 @@ const Styled = styled.div`
  {
     display: flex;
     justify-content: flex-end;
-    padding: 8px
+    padding: 4px
  }
  
  .element{
-    margin: 0 16px;
+    margin: 0px 16px 0px 0px;
  }
  
  .element > div{
-    height: 32px;
+    height: 24px;
     border-radius: 4px;
  }
 `;
