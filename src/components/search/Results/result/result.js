@@ -4,10 +4,15 @@ import Auxiliary from '../../../../hoc/Auxiliary/Auxiliary'
 import styles from './result.module.css'
 
 class Result extends React.Component {
-    const;
+
     handleClick = () => {
         this.props.setEvents({events: this.props.events});
         this.props.modalOpen();
+    };
+
+    handleCalendarClick = () => {
+        this.props.setEvents({events: this.props.events});
+        this.props.calendarOpen();
     };
 
     render() {
@@ -28,7 +33,7 @@ class Result extends React.Component {
                     <p className={styles.km}>{this.props.odleglosc} km</p>
                     <p className={styles.zamow}>
                         <button onClick={this.handleClick}>Zamow</button>
-                        <button >Zobacz Kalendarz</button>
+                        <button onClick={this.handleCalendarClick}>Kalendarz</button>
                     </p>
 
                 </div>

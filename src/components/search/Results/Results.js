@@ -452,6 +452,7 @@ class Results extends React.Component {
                         events={res_workers[i].events}
                         key={res_workers[i].id}
                         photo={res_workers[i].photo}
+                        calendarOpen={this.props.calendarOpen}
                 />;
             list_jsx_res.push(res_jsx);
         }
