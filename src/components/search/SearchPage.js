@@ -7,7 +7,6 @@ import {SuccessToast} from "../utils/SuccessToast";
 import {CalendarModal} from "../popups/CalendarModal";
 import {CompanyModal} from "../popups/CompanyModal";
 
-
 const toastStyles = {
     position: 'absolute',
     left: '50%',
@@ -56,7 +55,7 @@ export const SearchPage = () => {
             <ReservationModal show={showReservation} handleClose={() => setShowReservation(false)} events={events}
                               setShowToast={() => setToast(true)}/>
             <CalendarModal show={showCalendar} handleClose={() => setShowCalendar(false)} events={events}/>
-            <CompanyModal show={showCompany} handleClose={() => setShowCompany(false)} companyData={companyData}/>
+            <CompanyModal  show={showCompany} handleClose={() => setShowCompany(false)} companyData={companyData} />
             <SuccessToast show={toast} setShow={setToast}/>
 
             <Filters

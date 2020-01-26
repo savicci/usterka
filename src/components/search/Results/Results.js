@@ -24,6 +24,7 @@ const worker0 = {
     specjalizacja: ['Sprzatanie'],
     opis: 'Działamy na rynku od 30 lat!',
     ocena: 4,
+    oceny:[5,4,5],
     odleglosc: 3,
     events: [{
         id: '1',
@@ -59,6 +60,7 @@ const worker1 = {
     specjalizacja: ['Uslugi Remontowe', <br/>, 'Uslugi Budowlane'],
     opis: 'Jesteśmy najlepsi w budowaniu domów i nie tylko (umiemy zaprojektować basen)!',
     ocena: 3,
+    oceny:[1,2,1],
     odleglosc: 7,
     events: [
         {
@@ -85,6 +87,7 @@ const worker2 = {
     specjalizacja: ['Uslugi Stolarskie'],
     opis: 'Rodzinna firma, gdzie jakość produktu i zadowlenia klienta to priorytet!',
     ocena: 5,
+    oceny:[5,5,5],
     odleglosc: 2,
     events: [
         {
@@ -112,6 +115,7 @@ const worker3 = {
     specjalizacja: ['Malowanie', <br/>, 'Sprzatanie'],
     opis: 'Studenci ASP, chętni do pomalowania domu. Po wykonanej pracy możemy nawet posprzątać za dodatkową opłatą',
     ocena: 2,
+    oceny:[1,4,3],
     odleglosc: 1.2,
     events: [
         {
@@ -147,6 +151,7 @@ const worker4 = {
     specjalizacja: ['Pomoc Kuchenna'],
     opis: 'Nowoczene smaki i tradycyjna kultura obsługi!',
     ocena: 4,
+    oceny:[1,4,1],
     odleglosc: 9,
     events: [
         {
@@ -191,6 +196,7 @@ const worker5 = {
     specjalizacja: ['Uslugi Hydrauliczne'],
     opis: 'Zajmujemy się hydrauliką od 15 lat. Nasz zespół będzie w stanie pomóc Ci z każdą usterką!',
     ocena: 5,
+    oceny:[1,4,2],
     odleglosc: 5.4,
     events: [
         {
@@ -218,6 +224,7 @@ const worker6 = {
     specjalizacja: ['Uslugi Budowlane'],
     opis: 'Budowa domów, elewacje, wylewki u nas to nie przelewki!',
     ocena: 4,
+    oceny:[3,4,1],
     odleglosc: 2.4,
     events: [
         {
@@ -245,6 +252,7 @@ const worker7 = {
     specjalizacja: ['Pomoc Kuchenna'],
     opis: 'Specjalizuje się w kuchni polskiej. Receptury których używam były stosowane i udoskonalane od pokoleń w mojej rodzinie.',
     ocena: 3,
+    oceny:[3,2,5],
     odleglosc: 6.4,
     events: [
         {
@@ -272,6 +280,7 @@ const worker8 = {
     specjalizacja: ['Sprzatanie'],
     opis: 'Gdy tylko skończymy, twoje mieszkanie będzie błyszczeć!',
     ocena: 4,
+    oceny:[3,4,5],
     odleglosc: 0.3,
     events: [
         {
@@ -315,6 +324,7 @@ const worker9 = {
     specjalizacja: ['Uslugi Stolarskie'],
     opis: 'Chcesz mieć biurko na wymiar? A chciałbyś mieć w swoim domu nieszablonowe schody? Wykonamy dla Ciebie z drewna co tylko chcesz!',
     ocena: 5,
+    oceny:[3,4,5],
     odleglosc: 3.4,
     events: [{
         id: '1',
@@ -356,6 +366,7 @@ const worker10 = {
     specjalizacja: ['Uslugi Hydrauliczne'],
     opis: 'Poradzilibyśmy sobię z rurami nawet na Marsie.',
     ocena: 4,
+    oceny:[3,4,5],
     odleglosc: 7,
     events: [
         {
@@ -383,6 +394,7 @@ const worker11 = {
     specjalizacja: ['Malowanie'],
     opis: 'Malowanie wnętrz, z nami Twój świat będzie kolorowy.',
     ocena: 2,
+    oceny:[3,4,5],
     odleglosc: 4,
     events: [
         {
@@ -405,6 +417,7 @@ class Results extends React.Component {
     };
 
     render() {
+        console.log(worker0.photo);
         let sort_Alf = this.props.sortAlfa;
         let word_r = this.props.word;
         let checksArr = this.props.checks;
@@ -447,6 +460,7 @@ class Results extends React.Component {
                         specjalizacja={res_workers[i].specjalizacja}
                         opis={res_workers[i].opis}
                         ocena={res_workers[i].ocena}
+                        oceny={res_workers[i].oceny}
                         odleglosc={res_workers[i].odleglosc}
                         setEvents={this.props.setEvents}
                         events={res_workers[i].events}
@@ -455,6 +469,7 @@ class Results extends React.Component {
                         calendarOpen={this.props.calendarOpen}
                         openCompany={this.props.openCompanyModal}
                         setCompanyData={this.props.setCompanyData}
+
                 />;
             list_jsx_res.push(res_jsx);
         }

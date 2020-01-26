@@ -1,3 +1,10 @@
 .Search{
      position: relative;
  }
+
+.Company{
+    position: center;
+    width: 50%;
+    height: 800px;
+    color: red;
+}

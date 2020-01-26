@@ -7,7 +7,6 @@ class Labels extends React.Component{
             <div className={styles.Labels}>
                 <p className={styles.nazwa_firmy}>Nazwa firmy</p>
                 <p className={styles.specjalizacje}>Specjalizacje</p>
-                <p className={styles.opis}>Opis</p>
                 <p className={styles.ocena}>Ocena</p>
                 <p className={styles.km}>Odleglosc</p>
             </div>
