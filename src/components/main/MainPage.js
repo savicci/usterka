@@ -18,12 +18,14 @@ export const MainPage =  () => {
         setShow(true);
     }
 
+    const [stateEvents , setStateEvents] = useState(getEventsWithColorsMapped(events));
+
     const [show, setShow] = useState(false);
     const [id, setId] = useState('1');
 
     return (
         <div className="mainPage">
-            <EventModal show={show} handleClose={() => setShow(false)} id={id}/>
+            <EventModal show={show} handleClose={() => setShow(false)} id={id} setStateEvents={setStateEvents}/>
 
             <LegendBar/>
             <div className="calendar">
@@ -32,7 +34,7 @@ export const MainPage =  () => {
                     defaultView="timeGridWeek"
                     plugins={[timeGridPlugin]}
                     allDaySlot={false}
-                    events={getEventsWithColorsMapped(events)}
+                    events={stateEvents}
                     eventClick={handleClick}
                     height={720}
                 />

@@ -1,6 +1,7 @@
 import React, {useState} from "react";
 import {Button, FormControl, InputGroup, Jumbotron, Modal} from "react-bootstrap";
-import {getStatusFromEvent, mockedEvents} from "../utils/mockedEvents";
+import {getEventsWithColorsMapped, getStatusFromEvent, mockedEvents} from "../utils/mockedEvents";
+
 import BeautyStars from "beauty-stars";
 import styled from "styled-components";
 
@@ -81,6 +82,20 @@ export default function EventModal(props) {
         )
     }
 
+    function handleClick() {
+        props.setStateEvents(prevState => {
+            let modified = Object.assign(event);
+            modified.state = 'reviewed';
+
+            let newEvents = prevState.map(event => {
+                return event.id === props.id ? modified : event;
+            });
+
+            return getEventsWithColorsMapped(newEvents)
+        });
+        props.handleClose();
+    }
+
     function getFooterLookFromEventState(event) {
         switch (event.state) {
             case 'finished':
@@ -89,7 +104,7 @@ export default function EventModal(props) {
                         <Button variant="secondary" onClick={props.handleClose}>
                             Anuluj
                         </Button>
-                        <Button variant="primary" onClick={props.handleClose}>
+                        <Button variant="primary" onClick={handleClick}>
                             Zapisz
                         </Button>
                     </>
