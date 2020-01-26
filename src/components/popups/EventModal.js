@@ -12,6 +12,21 @@ padding: 16px;
 }
 `;
 
+const CompanyWrapper = styled.div`
+{
+display: flex;
+flex-direction: row;
+justify-content: space-around;
+align-items: center;
+background-color: rgb(249,249,249);
+padding: 8px;
+}
+
+img {
+border: solid 1px;
+}
+`;
+
 export default function EventModal(props) {
     let event = mockedEvents.find(event => event.id === props.id);
 
@@ -89,6 +104,17 @@ export default function EventModal(props) {
         }
     }
 
+    function getCompanyComponent() {
+        return (
+            <div>
+                <CompanyWrapper>
+                    <h4> Wykonawca: {event.company.name}</h4>
+                    <img src={event.company.photo} width={100} height={100} alt='company photo'/>
+                </CompanyWrapper>
+            </div>
+        )
+    }
+
     return (
         <Modal size='lg' show={props.show} onHide={props.handleClose}>
             <Modal.Header closeButton>
@@ -98,6 +124,8 @@ export default function EventModal(props) {
                 <Jumbotron>
                     {event.text}
                 </Jumbotron>
+
+                {getCompanyComponent()}
 
                 {event.state === 'active' ? <></> : (
                     <div>
