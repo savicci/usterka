@@ -2,7 +2,7 @@ import React from "react";
 import Navbar from "react-bootstrap/Navbar";
 import Nav from "react-bootstrap/Nav";
 import NavDropdown from "react-bootstrap/NavDropdown";
-
+import l from '../../assets/img/log.png'
 import "./Navbar.css";
 import {authenticationService} from "../../auth/services";
 import {history} from "../../auth/helpers";
@@ -19,7 +19,7 @@ export class NavigationBar extends React.Component {
         return (
             <Navbar bg="light" expand="sm">
                 <Navbar.Brand href="/">
-                    <img src={require("../../assets/favicon.ico")}
+                    <img src={l}
                          width="40"
                          height="40"
                          className="d-inline-block align-top"

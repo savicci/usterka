@@ -6,7 +6,9 @@ const ToastWrapper = styled.div`
     position: absolute;
     left: 40%;
     top: 5%;
-    zIndex: 100000;
+    opacity: 100;
+    z-index: 10000;
+    pointer-events: none
 `;
 
 export const SuccessToast = (props) => {
