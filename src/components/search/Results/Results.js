@@ -289,8 +289,9 @@ const worker5 = {
     nazwa: 'Hydriulex',
     specjalizacja: ['Uslugi Hydrauliczne'],
     opis: 'Zajmujemy się hydrauliką od 15 lat. Nasz zespół będzie w stanie pomóc Ci z każdą usterką!',
-    ocena: 5,
+
     oceny:[1,4,2],
+    ocena: 2,
     odleglosc: 5.4,
     daneDoKomentarza:[
         [
@@ -403,8 +404,8 @@ const worker8 = {
     nazwa: 'Sprzątanie z Klasą',
     specjalizacja: ['Sprzatanie'],
     opis: 'Gdy tylko skończymy, twoje mieszkanie będzie błyszczeć!',
-    ocena: 4,
     oceny:[3,4,5],
+    ocena: 2,
     odleglosc: 0.3,
     daneDoKomentarza:[
         [
@@ -626,6 +627,9 @@ class Results extends React.Component {
                 if (!res_workers.includes(workers[i])) res_workers.push(workers[i]);
             }
         }
+        for(let a=0;a<res_workers.length;a++){
+            res_workers[a].ocena=Math.floor((res_workers[a].oceny[0]+res_workers[a].oceny[1]+res_workers[a].oceny[2])/3);
+        }
         if (sort_Alf === 'A') {
             res_workers.sort((a, b) => (a.nazwa > b.nazwa) ? 1 : (a.nazwa === b.nazwa) ? ((a.nazwa > b.nazwa) ? 1 : -1) : -1)
         }
@@ -639,6 +643,7 @@ class Results extends React.Component {
 
 
         for (let i = 0; i < res_workers.length; i++) {
+
             let res_jsx =
                 <Result modalOpen={this.props.modalOpen}
                         style={{backgroundColor: 'black'}}
