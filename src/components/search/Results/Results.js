@@ -15,6 +15,29 @@ import sprzatanie from '../../../assets/img/sprzatanie.png'
 import grzegrzi from '../../../assets/img/grzegrzi.png'
 import pipex from '../../../assets/img/pipex.png'
 import verado from '../../../assets/img/verado.png'
+import kekw from '../../../assets/img/kekw.png'
+import Madziak from '../../../assets/img/pepehappy.png'
+import img1 from '../../../assets/img/img1.jpg'
+import img2 from '../../../assets/img/img2.jpg'
+import img3 from '../../../assets/img/img3.jpg'
+import img4 from '../../../assets/img/img4.jpg'
+import img5 from '../../../assets/img/img5.jpg'
+import img6 from '../../../assets/img/img6.jpg'
+import img7 from '../../../assets/img/img7.jpg'
+import img8 from '../../../assets/img/img8.jpg'
+import img9 from '../../../assets/img/img9.jpg'
+import img10 from '../../../assets/img/img10.jpg'
+import img11 from '../../../assets/img/img11.jpg'
+import img12 from '../../../assets/img/img12.png'
+import img13 from '../../../assets/img/img13.jpg'
+import img14 from '../../../assets/img/img14.jpg'
+import img15 from '../../../assets/img/img15.jpg'
+import img16 from '../../../assets/img/img16.jpg'
+import img17 from '../../../assets/img/img17.jpg'
+import img18 from '../../../assets/img/img18.jpg'
+import img19 from '../../../assets/img/img19.png'
+import img20 from '../../../assets/img/img20.jpg'
+import img21 from '../../../assets/img/img21.png'
 
 const workers = [];
 const worker0 = {
@@ -26,6 +49,20 @@ const worker0 = {
     ocena: 4,
     oceny:[5,4,5],
     odleglosc: 3,
+    daneDoKomentarza:[
+        [
+            kekw,
+            "Verado",
+            "Jak na ta cene, to powinno byc wysprzatane perfekcyjnie, a dywany pozostawialy wiele do zyczenia",
+            3
+        ],
+        [
+            Madziak,
+            "Madziak",
+            "Swietna obsluga, polecam",
+            5
+        ]
+    ],
     events: [{
         id: '1',
         title: '',
@@ -60,8 +97,22 @@ const worker1 = {
     specjalizacja: ['Uslugi Remontowe', <br/>, 'Uslugi Budowlane'],
     opis: 'Jesteśmy najlepsi w budowaniu domów i nie tylko (umiemy zaprojektować basen)!',
     ocena: 3,
-    oceny:[1,2,1],
+    oceny:[3,4,1],
     odleglosc: 7,
+    daneDoKomentarza:[
+        [
+            img1,
+            "Rojo",
+            "Salon wyszedl nieźle, ale w drugim pokoju niestety uszkodzili odrobinę parkiet",
+            4
+        ],
+        [
+            img2,
+            "Kolos",
+            "Nie polecam",
+            2
+        ]
+    ],
     events: [
         {
             id: '1',
@@ -79,6 +130,7 @@ const worker1 = {
             textColor: 'rgba(224, 224, 224)',
             backgroundColor: 'rgba(224, 224, 224)',
         }]
+
 };
 const worker2 = {
     photo: ss,
@@ -89,6 +141,26 @@ const worker2 = {
     ocena: 5,
     oceny:[5,5,5],
     odleglosc: 2,
+    daneDoKomentarza:[
+        [
+            img3,
+            "Jupiter",
+            "Biurko idealnie dopasowane do rogu pokoju, super",
+            5
+        ],
+        [
+            img4,
+            "Kaszanka",
+            "Wszystko ok",
+            5
+        ],
+        [
+            img5,
+            "Jogson",
+            "Bardzo fajne",
+            5
+        ]
+    ],
     events: [
         {
             id: '1',
@@ -117,6 +189,14 @@ const worker3 = {
     ocena: 2,
     oceny:[1,4,3],
     odleglosc: 1.2,
+    daneDoKomentarza:[
+        [
+            img21,
+            "Tro45",
+            "Ceny z kosmosu, wykonanie zajęło 2 godziny dłużej niż planowano",
+            2
+        ]
+    ],
     events: [
         {
             id: '1',
@@ -153,6 +233,20 @@ const worker4 = {
     ocena: 4,
     oceny:[1,4,1],
     odleglosc: 9,
+    daneDoKomentarza:[
+        [
+            img6,
+            "Kasia",
+            "Smaczne, na komunie zamawialam, wszystkim smakowalo",
+            5
+        ],
+        [
+            img7,
+            "Janusz",
+            "Niedoprawione, ciezko sie dogadac z pracownikami",
+            3
+        ]
+    ],
     events: [
         {
             id: '1',
@@ -198,6 +292,14 @@ const worker5 = {
     ocena: 5,
     oceny:[1,4,2],
     odleglosc: 5.4,
+    daneDoKomentarza:[
+        [
+            img8,
+            "Adwokat",
+            "Kaloryfery dobrze zamontowane, nic nie cieknie",
+            5
+        ]
+    ],
     events: [
         {
             id: '1',
@@ -226,6 +328,20 @@ const worker6 = {
     ocena: 4,
     oceny:[3,4,1],
     odleglosc: 2.4,
+    daneDoKomentarza:[
+        [
+            img9,
+            "Lupo",
+            "Robili mi kostke przed domem, troche za drogo, ale nie mogę się doczepić do jakości wykonania",
+            4
+        ],
+        [
+            img10,
+            "Agris",
+            "Panowie mili, ale czas wykonania dwa razy dłuzszy niż zapowiadali",
+            4
+        ]
+    ],
     events: [
         {
             id: '1',
@@ -254,6 +370,14 @@ const worker7 = {
     ocena: 3,
     oceny:[3,2,5],
     odleglosc: 6.4,
+    daneDoKomentarza:[
+        [
+            img11,
+            "Yumio",
+            "Mięso wątpliwej jakości w potrawach",
+            3
+        ]
+    ],
     events: [
         {
             id: '1',
@@ -282,6 +406,14 @@ const worker8 = {
     ocena: 4,
     oceny:[3,4,5],
     odleglosc: 0.3,
+    daneDoKomentarza:[
+        [
+            img12,
+            "Oskeot",
+            "Troche taniej i by było idealnie",
+            4
+        ]
+    ],
     events: [
         {
             id: '1',
@@ -326,6 +458,26 @@ const worker9 = {
     ocena: 5,
     oceny:[3,4,5],
     odleglosc: 3.4,
+    daneDoKomentarza:[
+        [
+            img13,
+            "Hulio",
+            "Wspaniala robota",
+            5
+        ],
+        [
+            img14,
+            "Papryk",
+            "Juz zawsze bede korzystał z usług tej firmy",
+            5
+        ],
+        [
+            img15,
+            "Oldek",
+            "Super",
+            5
+        ]
+    ],
     events: [{
         id: '1',
         title: '',
@@ -368,6 +520,26 @@ const worker10 = {
     ocena: 4,
     oceny:[3,4,5],
     odleglosc: 7,
+    daneDoKomentarza:[
+        [
+            img16,
+            "Abstarr",
+            "W porządku",
+            5
+        ],
+        [
+            img17,
+            "Agnostar",
+            "Po 3 miesiącach zaczęły pojawiać się problemy z rurami.",
+            3
+        ],
+        [
+            img18,
+            "YTabo",
+            "OK",
+            4
+        ]
+    ],
     events: [
         {
             id: '1',
@@ -393,9 +565,23 @@ const worker11 = {
     nazwa: 'Verado',
     specjalizacja: ['Malowanie'],
     opis: 'Malowanie wnętrz, z nami Twój świat będzie kolorowy.',
-    ocena: 2,
+    ocena: 4,
     oceny:[3,4,5],
     odleglosc: 4,
+    daneDoKomentarza:[
+        [
+            img19,
+            "Keni",
+            "Drogo, ale przynajmniej porządnie zrobione",
+            4
+        ],
+        [
+            img20,
+            "Gitara",
+            "Calkiem dobrze wykonana robota, jedynie mam zastrzeżenia w okolicach drzwi",
+            4
+        ]
+    ],
     events: [
         {
             id: '1',
@@ -469,6 +655,7 @@ class Results extends React.Component {
                         calendarOpen={this.props.calendarOpen}
                         openCompany={this.props.openCompanyModal}
                         setCompanyData={this.props.setCompanyData}
+                        daneCom={res_workers[i].daneDoKomentarza}
 
                 />;
             list_jsx_res.push(res_jsx);

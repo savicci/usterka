@@ -24,7 +24,8 @@ class Result extends React.Component {
             opis:this.props.opis,
             photo:this.props.photo,
             ocena:this.props.ocena,
-            oceny:this.props.oceny
+            oceny:this.props.oceny,
+            daneDoKomentarza:this.props.daneCom
         });
 
         this.props.openCompany();

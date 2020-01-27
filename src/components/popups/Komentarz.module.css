@@ -1,0 +1,16 @@
+.komentarz {
+    display: flex;
+    flex-direction: row;
+}
+.komentarz p {
+    border-width: thin;
+    border-style: solid;
+}
+.komentarz img{
+    width: 100px;
+    height: 100px;
+}
+.zdjecieInazwa {
+    display: flex;
+    flex-direction: column;
+}

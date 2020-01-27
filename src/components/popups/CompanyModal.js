@@ -2,12 +2,27 @@ import React from "react";
 import {Modal} from "react-bootstrap";
 import styles from './CompanyModal.module.css'
 import BeautyStars from "beauty-stars";
+import Komentarz from "./Komentarz";
+import Result from "../search/Results/result/result";
 
 export const CompanyModal = (props) => {
-    console.log(props.companyData);
-    console.log(props.companyData.oceny);
+
     const oceny=props.companyData.oceny;
-    return (
+    console.log(props.companyData.daneDoKomentarza);
+    let listaKomentarzy= [];
+    if (props.companyData.daneDoKomentarza !== undefined) {
+        for (let i = 0; i < props.companyData.daneDoKomentarza.length; i++) {
+            let koment =
+                <Komentarz zdjecie={props.companyData.daneDoKomentarza[i][0]}
+                           uzytkownik={props.companyData.daneDoKomentarza[i][1]}
+                           komentarz={props.companyData.daneDoKomentarza[i][2]}
+                           ocena={props.companyData.daneDoKomentarza[i][3]}
+                />;
+            listaKomentarzy.push(koment);
+        }
+    }
+
+    return(
         <Modal show={props.show} onHide={props.handleClose} dialogClassName={styles.CompanyModal} size={"lg"}>
             <Modal.Header closeButton>
                 <Modal.Title className={styles.title}>Firma {props.companyData.nazwa}</Modal.Title>
@@ -40,7 +55,7 @@ export const CompanyModal = (props) => {
 
                 <div className={styles.Komentarz}>
                     <h4>Komentarze</h4>
-                    <p>Jakis komentarz</p>
+                    {listaKomentarzy}
                 </div>
 
 
