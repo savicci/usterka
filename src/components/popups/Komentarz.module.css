@@ -1,10 +1,12 @@
 .komentarz {
     display: flex;
     flex-direction: row;
+    width: 100%;
 }
-.komentarz p {
+.komentarz div {
     border-width: thin;
     border-style: solid;
+    margin-bottom: 25px;
 }
 .komentarz img{
     width: 100px;
@@ -13,4 +15,27 @@
 .zdjecieInazwa {
     display: flex;
     flex-direction: column;
+}
+
+.komentarz p{
+    margin-bottom: 0;
+
+}
+
+.nazwa{
+    text-align: center;
+    justify-content: center;
+    background-color: lightgrey;
+}
+
+.kom{
+    width: 50%;
+    padding-top: 15px;
+    padding-left: 10px;
+}
+
+.ocena{
+    padding-top:42px ;
+    padding-left: 25px;
+    width: 40%;
 }
